@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lechuza Lectora - Gestión de Inventario</title>
+    <link rel="stylesheet" href="../../Estilos/Estilo1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="dashboard-page">
+
+    <header class="navbar dashboard-navbar">
+        <div class="logo-container">
+            <img src="../../Imagenes/logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
+            <span class="site-name">LA LECHUZA LECTORA</span>
+        </div>
+        
+        <div class="auth-actions user-actions">
+            <i class="fa-solid fa-house"></i>
+            <span>Admin</span>
+            <img src="../../Imagenes/avatar.png" alt="Avatar Admin" class="avatar">
+        </div>
+    </header>
+
+    <main class="main-content inventory-main">
+        <div class="background-overlay dashboard-bg"></div>
+
+        <div class="inventory-container">
+            <div class="inventory-header">
+                <i class="fa-solid fa-arrow-left"></i>
+                <h1 class="dashboard-title">Gestión de Inventario</h1>
+            </div>
+
+            <div class="inventory-table-wrapper">
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" aria-label="Seleccionar todos"></th>
+                            <th>Fecha</th>
+                            <th>Ubicación en Almacen</th>
+                            <th>Ubicación en aparador</th>
+                            <th>Costo Compra</th>
+                            <th>Costo Venta</th>
+                            <th>Status</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><span class="status-tag available">Disponible</span></td>
+                            <td><button class="btn-edit">Editar</button></td>
+                        </tr>
+                         <tr>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><span class="status-tag sold-out">Agotado</span></td>
+                            <td><button class="btn-edit">Editar</button></td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><span class="status-tag available">Disponible</span></td>
+                            <td><button class="btn-edit">Editar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="inventory-footer">
+                <div class="pagination-nav">
+                    <span>← Previous</span>
+                    <div class="pagination">
+                        <span>1</span><span>2</span><span>3</span>...<span>67</span><span>68</span>
+                    </div>
+                    <span>Next →</span>
+                </div>
+                <button class="btn-print">Imprimir</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">...</footer>
+
+</body>
+</html>

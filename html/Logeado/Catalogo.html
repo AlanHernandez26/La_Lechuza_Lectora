@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lechuza Lectora - Catálogo</title>
+    <link rel="stylesheet" href="../../Estilos/Estilo1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar detail-navbar">
+        <div class="logo-container">
+            <img src="../../Imagenes/logo.png"Logo La Lechuza Lectora" class="logo"> 
+            <span class="site-name">LA LECHUZA LECTORA</span>
+        </div>
+        
+        <div class="search-bar detail-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar Libros, Autores, Editoriales y más...">
+        </div>
+        
+        <nav class="nav-links">
+            <a href="#">Inicio</a>
+            <a href="#" class="active-link">Catálogo</a>
+            <a href="#">Novedades</a>
+            <a href="#">Ofertas</a>
+        </nav>
+        
+        <div class="auth-actions user-actions">
+            <a href="#" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="#" class="icon-link"><i class="fa-solid fa-bell"></i></a>
+            <img src="../../Imagenes/avatar.png" alt="Avatar Usuario" class="avatar">
+        </div>
+    </header>
+
+    <main class="main-content catalog-main">
+        <div class="background-overlay" style="filter: brightness(0.8);"></div>
+
+        <div class="catalog-container">
+            <aside class="filter-sidebar">
+                <h2>Filtros</h2>
+                
+                <div class="filter-section">
+                    <h3>Género</h3>
+                    <div class="filter-tags">
+                        <span class="tag selected">Terror <i class="fa-solid fa-xmark"></i></span>
+                        <span class="tag selected">Suspenso <i class="fa-solid fa-xmark"></i></span>
+                    </div>
+                    <label><input type="checkbox" checked> Terror</label>
+                    <label><input type="checkbox" checked> Suspenso</label>
+                    <label><input type="checkbox"> Fantasia</label>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Precio</h3>
+                    <input type="range" min="0" max="1000" value="0">
+                    <div class="price-range">
+                        <span>$0</span>-<span>$1000</span>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="product-grid">
+                <div class="book-product-card">
+                    <img src="fantasma-favoritos.jpg" alt="Los fantasmas favoritos">
+                    <p class="book-title-grid">Los fantasmas favoritos</p>
+                    <div class="rating-small">
+                        <i class="fa-solid fa-star"></i> 4.5
+                    </div>
+                    <span class="book-price-grid">$399</span>
+                    <span class="book-tag-grid">Oferta</span>
+                </div>
+                
+                <div class="carousel-nav catalog-pagination">
+                    <button>← Previous</button>
+                    <div class="pagination">
+                        <span>1</span><span>2</span><span>3</span>...<span>67</span><span>68</span>
+                    </div>
+                    <button>Next →</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+        <footer class="site-footer">
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="copyright">
+            © Todos los derechos reservados 2025. Diseñado por La Lechuza Lectora ©
+        </div>
+    </footer>
+</body>
+</html>
