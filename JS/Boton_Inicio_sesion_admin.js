@@ -1,21 +1,20 @@
-// Archivo: Js/adminRedirect.js
-// Este módulo maneja la redirección del botón "Administrativo"
-// en la página de inicio de sesión de usuario.
+// Archivo: Js/Boton_Inicio_sesion_admin.js
+// Maneja la redirección del botón 'Administrativo' al formulario de login de administrador.
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Selector del Botón 'Administrativo'
-    // El botón se identifica por su clase: .btn-admin-switch
+    // 1. Selecciona el botón 'Administrativo' usando su clase
     const adminSwitchButton = document.querySelector('.btn-admin-switch');
-    
-    // RUTA DE DESTINO: Asumimos que el archivo 'inicio_sesion_admin.html' está en la misma carpeta 
-    // que el archivo 'inicio_sesion.html'.
-    const adminLoginURL = 'inicio_sesion_admin.html';
+
+    // La ruta de destino, asumiendo que:
+    // - Estás en: Código/html/inicio_de_sesion/inicio_sesion.html
+    // - Destino es: Código/html/inicio_de_sesion/inicio_sesion_admin.html
+    const ADMIN_LOGIN_URL = 'inicio_sesion_admin.html'; 
 
     if (adminSwitchButton) {
         adminSwitchButton.addEventListener('click', () => {
-            // Redirige a la página de inicio de sesión para el Administrador.
-            window.location.href = adminLoginURL;
+            // Redirige al archivo de login del administrador.
+            window.location.href = ADMIN_LOGIN_URL;
+            console.log("Redirigiendo a:", ADMIN_LOGIN_URL);
         });
     }
 });
