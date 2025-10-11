@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lechuza Lectora - Catálogo (Sesión Iniciada)</title>
+    <!-- RUTA CSS: Sube dos niveles a Código/ y baja a Estilos/ -->
+    <link rel="stylesheet" href="../../Estilos/Estilo1.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Enlaza los scripts de usuario logeado y de carga de productos -->
+    <script src="../../Js/userDropdown.js"></script>
+    <script src="../../Js/productLoader.js"></script>
+    <script src="../../Js/filterSidebar.js"></script>
+</head>
+<body>
+
+    <!-- Header con Búsqueda y Avatar (Logeado) -->
+    <header class="navbar detail-navbar">
+        <div class="logo-container">
+            <img src="../../Imagenes/logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
+            <span class="site-name">LA LECHUZA LECTORA</span>
+        </div>
+        
+        <div class="search-bar detail-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar Libros, Autores, Editoriales y más...">
+        </div>
+        
+        <nav class="nav-links">
+            <a href="Acerca de.html">Acerca de</a>
+            <a href="Contacto.html">Contacto</a>
+            <a href="Ayuda.html">Ayuda</a>
+            <a href="#" class="active-link">Catálogo</a>
+        </nav>
+        
+        <div class="auth-actions user-actions">
+            <a href="#" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="#" class="icon-link"><i class="fa-solid fa-bell"></i></a>
+            
+            <div class="avatar-dropdown-container">
+                <img src="../../Imagenes/avatar.png" alt="Avatar Usuario" class="avatar" id="avatar-btn">
+                
+                <div class="dropdown-menu" id="avatar-dropdown">
+                    <a href="perfil.html" id="profile-link">Mi Perfil</a>
+                    <a href="#" id="logout-btn">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido Principal: Catálogo (Dinámico) -->
+    <main class="main-content catalog-main">
+        <div class="background-overlay" style="filter: brightness(0.8);"></div>
+        
+        <!-- Botón visible en móvil/tablet para abrir los filtros -->
+        <button id="filter-toggle" class="btn-filter-toggle">
+            <i class="fa-solid fa-filter"></i> Filtros
+        </button>
+
+        <div class="catalog-container">
+            <!-- Sidebar de Filtros (ESTRUCTURA ÚNICA Y COMPLETA) -->
+            <aside class="filter-sidebar" id="filter-sidebar">
+                <div class="sidebar-header">
+                    <h2>Filtros</h2>
+                    <button id="sidebar-close-btn" class="btn-close-sidebar">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- 1. Género Principal -->
+                <div class="filter-section filter-genres">
+                    <h3>Género Principal</h3>
+                    <div class="filter-options">
+                        <label><input type="checkbox" data-filter="Terror"> Terror</label>
+                        <label><input type="checkbox" data-filter="Novela"> Novela Contemporánea</label>
+                        <label><input type="checkbox" data-filter="CienciaFiccion"> Ciencia Ficción</label>
+                        <label><input type="checkbox" data-filter="Fantasia"> Fantasía Épica</label>
+                        <label><input type="checkbox" data-filter="Biografia"> Biografía</label>
+                        <label><input type="checkbox" data-filter="Historia"> Histórico</label>
+                        <label><input type="checkbox" data-filter="Romance"> Romance</label>
+                        <label><input type="checkbox" data-filter="Thriller"> Thriller</label>
+                        <label><input type="checkbox" data-filter="Misterio"> Misterio</label>
+                        <label><input type="checkbox" data-filter="Poesia"> Poesía</label>
+                        <label><input type="checkbox" data-filter="Infantil"> Infantil</label>
+                        <label><input type="checkbox" data-filter="Juvenil"> Juvenil</label>
+                        <label><input type="checkbox" data-filter="Autoayuda"> Autoayuda</label>
+                        <label><input type="checkbox" data-filter="Arte"> Arte y Diseño</label>
+                        <label><input type="checkbox" data-filter="Tecnico"> Técnico/Académico</label>
+                        <label><input type="checkbox" data-filter="Ensayo"> Ensayo</label>
+                    </div>
+                </div>
+
+                <!-- 2. Subgéneros/Temas -->
+                <div class="filter-section filter-subgenres">
+                    <h3>Subgéneros/Temas</h3>
+                    <div class="filter-options">
+                        <label><input type="checkbox" data-filter="SuspensoPsicologico"> Suspenso Psicológico</label>
+                        <label><input type="checkbox" data-filter="Distopia"> Distopía</label>
+                        <label><input type="checkbox" data-filter="FantasiaUrbana"> Fantasía Urbana</label>
+                        <label><input type="checkbox" data-filter="Ciberpunk"> Ciberpunk</label>
+                        <label><input type="checkbox" data-filter="FiccionHistorica"> Ficción Histórica</label>
+                        <label><input type="checkbox" data-filter="NovelaNegra"> Novela Negra</label>
+                        <label><input type="checkbox" data-filter="Western"> Western</label>
+                        <label><input type="checkbox" data-filter="CienciaDura"> Ciencia Dura</label>
+                        <label><input type="checkbox" data-filter="CrimenReal"> Crimen Real</label>
+                        <label><input type="checkbox" data-filter="Cocina"> Cocina</label>
+                        <label><input type="checkbox" data-filter="Viajes"> Viajes</label>
+                        <label><input type="checkbox" data-filter="Mitologia"> Mitología</label>
+                        <label><input type="checkbox" data-filter="Comedia"> Comedia</label>
+                        <label><input type="checkbox" data-filter="Filosofia"> Filosofía</label>
+                        <label><input type="checkbox" data-filter="Tecnologia"> Tecnología</label>
+                    </div>
+                </div>
+
+                <!-- 3. Clasificación de Edad -->
+                <div class="filter-section filter-age">
+                    <h3>Clasificación de Edad</h3>
+                    <div class="filter-options">
+                        <label><input type="radio" name="age-group" data-filter="General"> General (Todos)</label>
+                        <label><input type="radio" name="age-group" data-filter="JovenAdulto"> Joven Adulto (14+)</label>
+                        <label><input type="radio" name="age-group" data-filter="Adulto"> Adulto (+18)</label>
+                    </div>
+                </div>
+
+                <!-- 4. Tamaño y Formato -->
+                <div class="filter-section filter-format">
+                    <h3>Tamaño/Formato</h3>
+                    <div class="filter-options">
+                        <label><input type="checkbox" data-filter="Bolsillo"> Bolsillo (Pocket)</label>
+                        <label><input type="checkbox" data-filter="Estandar"> Estándar</label>
+                        <label><input type="checkbox" data-filter="A4"> Formato A4</label>
+                        <label><input type="checkbox" data-filter="A5"> Formato A5</label>
+                        <label><input type="checkbox" data-filter="Digital"> Digital/eBook</label>
+                        <label><input type="checkbox" data-filter="Audiolibro"> Audiolibro</label>
+                    </div>
+                </div>
+
+                <!-- 5. Cantidad de Hojas (Rango) -->
+                <div class="filter-section filter-pages">
+                    <h3>Páginas (Máx.)</h3>
+                    <div class="page-range">
+                        <input type="range" id="pages-range-input" min="50" max="1500" value="1500">
+                        <div class="page-values">
+                            <span id="pages-min-display">50</span> - <span id="pages-max-display">1500</span> págs.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Material de Composición/Cubierta -->
+                <div class="filter-section filter-material">
+                    <h3>Material/Cubierta</h3>
+                    <div class="filter-options">
+                        <label><input type="checkbox" data-filter="TapaDura"> Tapa Dura</label>
+                        <label><input type="checkbox" data-filter="TapaBlanda"> Tapa Blanda</label>
+                        <label><input type="checkbox" data-filter="Lujo"> Edición de Lujo</label>
+                        <label><input type="checkbox" data-filter="Reciclado"> Papel Reciclado</label>
+                    </div>
+                </div>
+                
+                <!-- 7. Sección de Colores -->
+                <div class="filter-section filter-colors">
+                    <h3>Color de Cubierta</h3>
+                    <div class="color-options">
+                        <span class="color-swatch" style="background-color: #5d4037;" data-filter="Marrón"></span>
+                        <span class="color-swatch" style="background-color: #d32f2f;" data-filter="Rojo"></span>
+                        <span class="color-swatch" style="background-color: #1976d2;" data-filter="Azul"></span>
+                        <span class="color-swatch" style="background-color: #fbc02d;" data-filter="Amarillo"></span>
+                        <span class="color-swatch" style="background-color: #388e3c;" data-filter="Verde"></span>
+                        <span class="color-swatch" style="background-color: #7b1fa2;" data-filter="Morado"></span>
+                        <span class="color-swatch" style="background-color: #e64a19;" data-filter="Naranja"></span>
+                        <span class="color-swatch" style="background-color: #000000;" data-filter="Negro"></span>
+                        <span class="color-swatch" style="background-color: #ffffff; border: 1px solid #ccc;" data-filter="Blanco"></span>
+                        <span class="color-swatch" style="background-color: #c0c0c0;" data-filter="Gris"></span>
+                        <span class="color-swatch" style="background-color: #8b4513;" data-filter="Sepia"></span>
+                        <span class="color-swatch" style="background-color: #ffc0cb;" data-filter="Rosa"></span>
+                        <span class="color-swatch" style="background-color: #00bcd4;" data-filter="Cian"></span>
+                        <span class="color-swatch" style="background-color: #a52a2a;" data-filter="Terracota"></span>
+                        <span class="color-swatch" style="background-color: #ffeb3b;" data-filter="Dorado"></span>
+                    </div>
+                </div>
+                
+                <!-- 8. Sección de Condición (Ofertas) -->
+                <div class="filter-section filter-offers">
+                    <h3>Condición</h3>
+                    <div class="filter-options">
+                        <label><input type="checkbox" data-filter="Ofertas"> Sólo Ofertas y Descuentos</label>
+                        <label><input type="checkbox" data-filter="Nuevos"> Productos Nuevos</label>
+                        <label><input type="checkbox" data-filter="BestSeller"> Best Sellers</label>
+                    </div>
+                </div>
+
+                <!-- 9. Sección de Precio Máximo (Rango) -->
+                <div class="filter-section filter-price">
+                    <h3>Precio Máximo</h3>
+                    <div class="price-range">
+                        <input type="range" id="price-range-input" min="500" max="5000" value="5000">
+                        <div class="price-values">
+                            <span id="price-min-display">$500</span> - <span id="price-max-display">$5000</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Tags Activos -->
+                <div class="filter-section">
+                    <h3>Filtros Activos</h3>
+                    <div class="filter-tags" id="active-filters-tags">
+                        <!-- Los tags activos se inyectarán aquí por el JS -->
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Contenedor donde se inyectarán los productos... -->
+            <section class="product-grid" id="products-container">
+                <!-- Los productos se cargarán aquí -->
+            </section>
+        </div>
+        
+        <!-- PAGINACIÓN (Ahora centrada fuera del contenedor de grid) -->
+        <div class="carousel-nav catalog-pagination">
+            <!-- Los botones Previous/Next son los hijos directos del contenedor -->
+            <button id="prev-page-btn">← Previous</button> 
+            <div class="pagination">
+                <!-- Los números de página se inyectarán aquí dinámicamente por JS -->
+            </div>
+            <button id="next-page-btn">Next →</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="copyright">
+            © Todos los derechos reservados 2025. Diseñado por La Lechuza Lectora ©
+        </div>
+    </footer>
+</body>
+</html>

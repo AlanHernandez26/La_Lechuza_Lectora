@@ -2408,3 +2408,334 @@ a { text-decoration: none; color: inherit; }
 .btn-dark-action:hover {
     background-color: #333;
 }
+
+/* --- ESTILOS PARA EL MENÚ DESPLEGABLE DEL AVATAR --- */
+
+.avatar-dropdown-container {
+    position: relative; /* Contenedor para posicionar el menú de forma absoluta */
+    display: inline-block;
+}
+
+.avatar {
+    cursor: pointer;
+    /* (Ya tiene estilos de 40px y border-radius: 50% en .user-actions .avatar) */
+}
+
+.dropdown-menu {
+    display: none; /* Oculto por defecto, se muestra con JS */
+    position: absolute;
+    top: 50px; /* Separación debajo del avatar */
+    right: 0;
+    z-index: 1050; /* Asegura que esté por encima de casi todo */
+    background-color: #fff;
+    min-width: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    list-style: none;
+    padding: 5px 0;
+}
+
+.dropdown-menu a {
+    color: var(--color-text-dark);
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9em;
+    transition: background-color 0.2s;
+    margin: 0; /* Elimina el margen lateral que tienen los links del navbar */
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   FILTROS DINÁMICOS Y ANIMACIONES DEL SIDEBAR
+   ========================================================================== */
+
+/* Botón de hamburguesa/filtro (Solo visible en móviles/tablets) */
+.btn-filter-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    position: fixed;
+    top: 70px; /* Debajo del navbar */
+    left: 20px;
+    z-index: 900;
+}
+
+/* Estilos de la barra lateral de filtros */
+.filter-sidebar {
+    /* Agregamos una transición para la animación de deslizamiento */
+    transition: transform 0.3s ease-out; 
+    transform: translateX(0); /* Posición inicial (visible en escritorio) */
+    position: relative;
+    /* (Mantiene todos los estilos de color/sombra que ya tiene) */
+}
+
+.sidebar-header {
+    display: none; /* Oculto en escritorio */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.btn-close-sidebar {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Estilos del precio dinámico */
+.filter-price .price-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.filter-price #price-range-input {
+    width: 100%;
+}
+
+/* Tags Activos */
+.active-filter {
+    cursor: default;
+}
+
+.active-filter i {
+    cursor: pointer; /* Hace que la X sea interactiva */
+    margin-left: 5px;
+}
+
+
+/* --- MEDIA QUERIES PARA RESPONSIVIDAD (Modo Móvil/Tablet) --- */
+
+@media (max-width: 1024px) {
+    .catalog-container {
+        /* Cambiamos a una sola columna para que el contenido fluya */
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    /* El botón de filtro solo es visible en móviles */
+    .btn-filter-toggle {
+        display: block; 
+    }
+
+    /* Ocultamos el sidebar por defecto en resoluciones pequeñas */
+    .filter-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        max-width: 300px; /* Limita el ancho en móvil */
+        width: 80%;
+        transform: translateX(-100%); /* Oculto a la izquierda */
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+        background-color: #fff; /* Fondo sólido para que no se vea el contenido debajo */
+        padding: 20px;
+        /* Sobreescribe el estilo del contenedor principal */
+        border-radius: 0 10px 10px 0; 
+    }
+
+    /* Clase activa: Muestra el sidebar deslizándolo */
+    .filter-sidebar.active {
+        transform: translateX(0);
+    }
+    
+    /* Mostramos el header del sidebar con el botón de cierre */
+    .filter-sidebar .sidebar-header {
+        display: flex;
+    }
+}
+
+/* --- ESTILOS PARA LOS NUEVOS FILTROS --- */
+
+/* Estilos para el filtro de Páginas (Rango) */
+.filter-pages .page-range {
+    margin-top: 10px;
+}
+.filter-pages .page-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+.filter-pages input[type="range"] {
+    width: 100%;
+}
+
+/* Estilos para los Swatches de Color */
+.color-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.color-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-swatch.selected {
+    border-color: var(--color-primary); /* Resaltado cuando está seleccionado */
+    box-shadow: 0 0 0 2px rgba(93, 64, 55, 0.5);
+}
+
+/* Ajuste general para todas las secciones de filtro */
+.filter-section h3 {
+    font-size: 1.1em;
+    color: var(--color-primary);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #eee;
+}
+
+.filter-section .filter-options label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.filter-section .filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+/* --- Estilos para los Swatches de Color --- */
+
+.color-options {
+    /* ¡CAMBIO CLAVE! Usamos Grid para 3 columnas fijas. */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Divide el espacio en 3 columnas iguales */
+    gap: 12px; /* Espacio entre las esferas */
+    margin-top: 10px;
+}
+
+.color-swatch {
+    width: 30px; /* Tamaño fijo */
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.2s ease;
+    /* QUITAMOS el flex/display:block para que grid lo maneje */
+    
+    /* Centrado dentro de su celda de grid */
+    justify-self: center; 
+    align-self: center;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-swatch.selected {
+    border-color: var(--color-primary); 
+    box-shadow: 0 0 0 2px rgba(93, 64, 55, 0.5);
+}
+
+/* --- MODIFICACIONES EN EL CSS DEL CATÁLOGO --- */
+
+/* 1. Centrar el contenedor de paginación (Reemplazar o modificar la regla existente) */
+.carousel-nav.catalog-pagination {
+    /* Centra el bloque de paginación debajo de la cuadrícula de productos */
+    justify-content: center; 
+    
+    /* Asegura que el bloque esté bien espaciado */
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 40px auto; /* Centrado y gran espacio */
+    padding: 10px;
+    
+    /* Forzamos el display flex para que los botones y números se centren */
+    display: flex; 
+    align-items: center;
+    gap: 10px; /* Espacio entre los botones y los números */
+}
+
+/* 2. Estilo de los números de página (.pagination span) */
+.carousel-nav.catalog-pagination .pagination {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacio más compacto entre números */
+}
+
+.carousel-nav.catalog-pagination .pagination span {
+    /* Diseño de caja para destacar los números */
+    background-color: var(--color-background-card); /* Fondo claro */
+    color: var(--color-text-dark); 
+    border: 1px solid #ccc; /* Borde suave */
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    min-width: 40px; /* Ancho mínimo para números de 1 o 2 dígitos */
+    text-align: center;
+}
+
+/* Estilo para la página activa/seleccionada */
+.carousel-nav.catalog-pagination .pagination span.active {
+    background-color: var(--color-secondary); /* Color de acento (amarillo/dorado) */
+    color: var(--color-text-dark);
+    border-color: var(--color-secondary);
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para los puntos suspensivos */
+.carousel-nav.catalog-pagination .pagination .page-ellipsis {
+    padding: 8px 0;
+    cursor: default;
+    border: none;
+}
+
+/* Estilo del Input de Página Personalizada */
+.custom-page-input {
+    width: 60px;
+    padding: 7px;
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1em;
+}
+
+/* Arreglo para que los productos llenen el espacio correctamente */
+/* Este ajuste es crucial si los libros están flotando a la izquierda */
+.catalog-container {
+    /* Asegura que el contenedor de grid tenga un máximo de ancho para que el contenido de la derecha no interfiera */
+    max-width: 1300px; 
+    margin: 40px auto; 
+    display: grid;
+    /* (Ya tenías grid-template-columns: 250px 1fr;) */
+}
+
+/* Arreglo para el mensaje de carga */
+.loading-message {
+    grid-column: 1 / -1; /* Asegura que el mensaje ocupe todo el ancho de la sección */
+    text-align: center;
+    padding: 50px;
+}
