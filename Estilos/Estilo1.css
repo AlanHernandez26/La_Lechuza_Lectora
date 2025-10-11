@@ -2286,3 +2286,125 @@ a { text-decoration: none; color: inherit; }
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================================
+   CSS ADICIONAL PARA VISIBILIDAD DE CONTRASEÑA
+   ========================================================================== */
+
+/* Wrapper para posicionar el icono dentro del input */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.password-wrapper input {
+    /* Asegura que el input se extienda y deja espacio para el icono */
+    width: 100%; 
+    padding-right: 40px; 
+}
+
+/* Estilo y posicionamiento del icono del ojo */
+.password-toggle {
+    position: absolute;
+    right: 15px; 
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888; 
+    transition: color 0.2s;
+}
+
+.password-toggle:hover {
+    color: var(--color-primary);
+}
+
+
+/* --- ESTILOS DE VALIDACIÓN --- */
+
+.change-password-card {
+    max-width: 450px;
+    padding: 40px;
+}
+
+/* Estilos de la lista de requisitos de seguridad */
+#password-requirements {
+    margin-top: -5px;
+    margin-bottom: 20px; 
+    padding: 10px 0;
+    border-top: 1px dashed #ccc;
+    font-size: 0.85em;
+    text-align: left;
+}
+
+#password-requirements ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo de la lista de coincidencia */
+#match-validation {
+    margin-bottom: 20px; 
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
+    font-size: 0.85em;
+    text-align: left;
+}
+
+#match-validation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilos de las líneas de requisito (Color y Tache/Paloma) */
+#password-requirements li, #match-validation li {
+    line-height: 1.6;
+    color: red; 
+    display: flex;
+    align-items: center;
+}
+
+#password-requirements li i, #match-validation li i {
+    width: 20px; 
+    margin-right: 5px;
+    text-align: center;
+}
+
+
+/* Contenedor Flexbox para los dos botones */
+.action-buttons-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.action-buttons-group .btn-action {
+    flex: 1;
+    width: auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+/* Estilos de botones */
+.action-buttons-group .btn-primary {
+    background-color: var(--color-primary); 
+    color: var(--color-text-light);
+    border: none;
+}
+
+.action-buttons-group .btn-dark-action {
+    background-color: #555; 
+    color: var(--color-text-light);
+    border: none;
+}
+
+.btn-dark-action:hover {
+    background-color: #333;
+}

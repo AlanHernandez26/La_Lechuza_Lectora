@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lechuza Lectora - Nueva Contraseña</title>
+    <link rel="stylesheet" href="../../Estilos/Estilo1.css">
+    <script src="../../JS/Cambio_Contraseña.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="form-page">
+
+    <main class="main-content form-main">
+        <div class="background-overlay" style="filter: brightness(0.6);"></div>
+
+        <div class="form-card change-password-card">
+            <h1 class="form-title">Nueva Contraseña</h1>
+            
+            <form id="password-form" class="recovery-form">
+                
+                <!-- CAMPO DE NUEVA CONTRASEÑA -->
+                <div class="input-group">
+                    <label for="new-password">Nueva Contraseña:</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="new-password" maxlength="10" required>
+                        <i class="fa-solid fa-eye password-toggle" data-target="new-password"></i>
+                    </div>
+                </div>
+
+                <!-- LISTA DE REQUISITOS -->
+                <div id="password-requirements">
+                    <ul>
+                        <li id="req-length"><i class="fa-solid fa-times"></i> Mínimo 6 y máximo 10 caracteres.</li>
+                        <li id="req-number"><i class="fa-solid fa-times"></i> Al menos 1 número (0-9).</li>
+                        <li id="req-special"><i class="fa-solid fa-times"></i> Al menos 1 caracter especial (!@#$%^&*).</li>
+                        <li id="req-common"><i class="fa-solid fa-times"></i> No puede ser una contraseña común (ej. 123456).</li>
+                    </ul>
+                </div>
+                
+                <!-- CAMPO DE CONFIRMACIÓN -->
+                <div class="input-group">
+                    <label for="confirm-password">Confirmar Contraseña:</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="confirm-password" maxlength="10" required>
+                        <i class="fa-solid fa-eye password-toggle" data-target="confirm-password"></i>
+                    </div>
+                </div>
+                
+                <!-- VALIDACIÓN DE COINCIDENCIA EN TIEMPO REAL -->
+                <div id="match-validation">
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li id="req-match"><i class="fa-solid fa-times"></i> Las contraseñas coinciden.</li>
+                    </ul>
+                </div>
+
+            </form>
+
+            <div class="action-buttons-group">
+                <button type="submit" form="password-form" id="btn-aceptar" class="btn-action btn-primary">Aceptar</button>
+                <button type="button" id="btn-regresar" class="btn-action btn-dark-action">Regresar</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="copyright">
+            © Todos los derechos reservados 2025. Diseñado por La Lechuza Lectora ©
+        </div>
+    </footer>
+    
+</body>
+</html>

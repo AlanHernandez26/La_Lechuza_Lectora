@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lechuza Lectora - Recuperar Contraseña</title>
+    <link rel="stylesheet" href="../../Estilos/Estilo1.css">
+    <script src="../../JS/Redireccionamiento_Recuperacion.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Debes enlazar aquí tus scripts de redirección si los usas -->
+    <!-- <script src="../../Js/loginRedirect.js"></script> -->
+</head>
+<body class="form-page">
+
+
+    <!-- Contenido Principal -->
+    <main class="main-content form-main">
+        <div class="background-overlay" style="filter: brightness(0.6);"></div>
+
+        <div class="form-card recovery-card">
+            <h1 class="form-title">Recuperar Contraseña</h1>
+            
+            <form class="recovery-form">
+                <div class="input-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="codigo">Código de verificación:</label>
+                    <input type="text" id="codigo">
+                </div>
+            </form>
+
+            <!-- Contenedor para los tres botones -->
+            <div class="action-buttons-group">
+                <button id="btn-enviar-codigo" class="btn-action btn-dark-action">Enviar código</button>
+                <button id="btn-siguiente" class="btn-action btn-dark-action">Siguiente</button>
+                <button id="btn-regresar" class="btn-action btn-dark-action">Regresar</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="copyright">
+            © Todos los derechos reservados 2025. Diseñado por La Lechuza Lectora ©
+        </div>
+    </footer>
+</body>
+</html>
