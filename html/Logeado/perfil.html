@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil de Usuario - La Lechuza Lectora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../Estilos/Estilo1.css">
+    <script src="../../JS/UserDropdown.js"></script>
+    <script src="../../JS/Boton_ini.js"></script>
+</head>
+<body>
+    
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="../../Imagenes/logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
+            <span class="site-name">LA LECHUZA LECTORA</span>
+        </div>
+        
+        <div class="search-bar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Buscar Libros, Autores, Editoriales y más...">
+        </div>
+        
+        <nav class="nav-links">
+            <a href="Acerca de.html">Acerca de</a>
+            <a href="Contacto.html">Contacto</a>
+            <a href="Ayuda.html">Ayuda</a>
+            <a href="Catalogo_Logeado.html">Catálogo</a>
+        </nav>
+        
+        <div class="auth-actions user-actions">
+            <a href="#" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="#" class="icon-link"><i class="fa-solid fa-bell"></i></a>
+            <button class="icon-button"><i class="fa-solid fa-house"></i></button>
+    <!-- CONTENEDOR DEL AVATAR Y EL MENÚ DESPLEGABLE -->
+            <div class="avatar-dropdown-container">
+                <img src="../../Imagenes/avatar.png" alt="Avatar Usuario" class="avatar" id="avatar-btn">
+                
+                <!-- MENÚ OCULTO -->
+                <div class="dropdown-menu" id="avatar-dropdown">
+                    <!-- Opción 1: Mi Perfil (Asume que perfil.html está en /html/logeado/) -->
+                    <a href="perfil.html" id="profile-link">Mi Perfil</a>
+                    <!-- Opción 2: Cerrar Sesión (Activada por JS) -->
+                    <a href="#" id="logout-btn">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="background-overlay admin-profile-bg"></div> 
+        
+        <div class="profile-main-wrapper">
+            
+            <h1 class="profile-title-custom">Bienvenido a tu Perfil</h1>
+
+            <div class="profile-header-card">
+                <img src="../../Imagenes/avatar.png" alt="Avatar de usuario" class="profile-avatar-custom">
+                <div class="profile-text-custom">
+                    <h2>Fernando Machorro</h2> 
+                    <p class="email-text">machorro29salvidar@gmail.com</p>
+                    <a href="#" class="btn-secondary btn-account-link btn-edit-profile">
+                        <i class="fas fa-edit"></i> Editar Perfil
+                    </a>
+                </div>
+            </div>
+
+            <div class="profile-actions-grid-custom">
+                
+                <a href="#" class="action-module action-module-lg">
+                    <i class="fas fa-id-card"></i>
+                    <h3>Información Personal</h3>
+                    <p>Documentos de Identificación y Datos de Contacto</p>
+                </a>
+                
+                <a href="#" class="action-module action-module-lg">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Direcciones</h3>
+                    <p>Administra tus domicilios de envío y facturación.</p>
+                </a>
+
+                <a href="#" class="action-module action-module-lg">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Tarjetas</h3>
+                    <p>Métodos de pago guardados para compras rápidas.</p>
+                </a>
+                
+                <a href="../Inicio_de_sesion/Cambio_Contraseña.html" class="action-module action-module-lg">
+                    <i class="fas fa-lock"></i>
+                    <h3>Seguridad</h3>
+                    <p>Cambiar contraseña</p>
+                </a>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; Todos los derechos reservados 2025. Diseñado por La Lechuza Lectora.</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

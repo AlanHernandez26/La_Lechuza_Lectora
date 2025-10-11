@@ -7,6 +7,8 @@
     <link rel="icon" type="image/x-icon" href="../../Imagenes/logo.png">
     <link rel="stylesheet" href="../../Estilos/Estilo1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="../../JS/UserDropdown.js"></script>
+    <script src="../../JS/Boton_ini.js"></script>
 </head>
 <body>
 
@@ -27,8 +29,18 @@
          <div class="auth-actions user-actions">
             <a href="#" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
             <a href="#" class="icon-link"><i class="fa-solid fa-bell"></i></a>
-            <img src="../../Imagenes/avatar.png" alt="Avatar Usuario" class="avatar">
-        </div>
+            <button class="icon-button"><i class="fa-solid fa-house"></i></button>
+    <!-- CONTENEDOR DEL AVATAR Y EL MENÚ DESPLEGABLE -->
+            <div class="avatar-dropdown-container">
+                <img src="../../Imagenes/avatar.png" alt="Avatar Usuario" class="avatar" id="avatar-btn">
+                
+                <!-- MENÚ OCULTO -->
+                <div class="dropdown-menu" id="avatar-dropdown">
+                    <!-- Opción 1: Mi Perfil (Asume que perfil.html está en /html/logeado/) -->
+                    <a href="perfil.html" id="profile-link">Mi Perfil</a>
+                    <!-- Opción 2: Cerrar Sesión (Activada por JS) -->
+                    <a href="#" id="logout-btn">Cerrar Sesión</a>
+                </div>
     </header>
 
     <!-- Contenido Principal -->

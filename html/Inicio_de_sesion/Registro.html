@@ -7,9 +7,8 @@
     <link rel="icon" type="image/x-icon" href="../../Imagenes/logo.png">
     <link rel="stylesheet" href="../../Estilos/Estilo1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Llamada al script de CAPTCHA y lógica de registro -->
     <script src="../../Js/captcha.js"></script>
-    <!-- Asegúrate de incluir aquí también tu script de cancelación (si está separado) -->
+    <!-- [NOTA]: El CSS del footer ya no se verá tapado. -->
 </head>
 <body class="form-page">
 
@@ -19,45 +18,86 @@
         <div class="form-card registration-card">
             <h1>Formulario de Registro</h1>
 
-            <!-- Se agrega id="registrationForm" para que el JS pueda seleccionarlo -->
             <form class="registration-grid" id="registrationForm"> 
-                <div class="input-group"><label for="nombres">Nombres:</label><input type="text" id="nombres" required></div>
-                <div class="input-group"><label for="apellido1">Primer apellido:</label><input type="text" id="apellido1" required></div>
-                <div class="input-group"><label for="apellido2">Segundo apellido:</label><input type="text" id="apellido2"></div>
-                <div class="input-group"><label for="fecha_nacimiento">Fecha de nacimiento:</label><input type="date" id="fecha_nacimiento" required></div>
                 
-                <div class="input-group"><label for="telefono">Numero telefónico:</label><input type="tel" id="telefono" required></div>
-                <div class="input-group"><label for="email">Correo electrónico:</label><input type="email" id="email" required></div>
-                <div class="input-group"><label for="email_recuperacion">Correo de recuperación:</label><input type="email" id="email_recuperacion"></div>
+                <!-- Columna 1: Datos Personales (4 campos) -->
+                <div class="section-group personal-data">
+                    <h2>Datos Personales</h2>
+                    <div class="input-group"><label for="nombres">Nombres:</label><input type="text" id="nombres" required></div>
+                    <div class="input-group"><label for="apellido1">Primer apellido:</label><input type="text" id="apellido1" required></div>
+                    <div class="input-group"><label for="apellido2">Segundo apellido:</label><input type="text" id="apellido2"></div>
+                    <div class="input-group"><label for="fecha_nacimiento">Fecha de nacimiento:</label><input type="date" id="fecha_nacimiento" required></div>
+                </div>
+
+                <!-- Columna 2: Datos de Contacto y Nickname (4 campos) -->
+                <div class="section-group contact-data">
+                    <h2>Información de Cuenta</h2>
+                    <div class="input-group"><label for="nickname">Apodo (Nickname):</label><input type="text" id="nickname"></div>
+                    <div class="input-group"><label for="telefono">Numero telefónico:</label><input type="tel" id="telefono" required></div>
+                    <div class="input-group"><label for="domicilio">Domicilio:</label><input type="text" id="domicilio" required></div>
+                    <div class="input-group"><label for="email">Correo electrónico:</label><input type="email" id="email" required></div>
+                </div>
                 
-                <div class="input-group"><label for="domicilio">Domicilio:</label><input type="text" id="domicilio" required></div>
-                <div class="input-group"><label for="password">Contraseña:</label><input type="password" id="password" required></div>
-                <div class="input-group"><label for="confirm_password">Confirmar contraseña:</label><input type="password" id="confirm_password" required></div>
-                
-                <!-- ESTRUCTURA DEL CAPTCHA -->
-                <div class="captcha-group">
-                    <div class="captcha-display-wrapper">
-                        <!-- El ID del display para que el JS lo actualice -->
-                        <span id="captcha-display" class="captcha-display">JUPRO</span> 
-                        <!-- Botón de refresco para que el JS genere un nuevo código -->
-                        <i id="captcha-refresh" class="fa-solid fa-sync-alt" style="cursor: pointer;"></i>
+                <!-- Columna 3: Contraseña y Validación (Ocupa dos filas) -->
+                <div class="section-group password-data">
+                    <h2>Contraseña</h2>
+                    
+                    <!-- CAMPO DE CONTRASEÑA -->
+                    <div class="input-group">
+                        <label for="password">Contraseña:</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password" maxlength="10" required>
+                            <i class="fa-solid fa-eye password-toggle" data-target="password"></i>
+                        </div>
+                    </div>
+
+                    <!-- CAMPO DE CONFIRMACIÓN -->
+                    <div class="input-group">
+                        <label for="confirm_password">Confirmar contraseña:</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="confirm_password" maxlength="10" required>
+                            <i class="fa-solid fa-eye password-toggle" data-target="confirm_password"></i>
+                        </div>
                     </div>
                     
-                    <label for="captcha-input">Introducir captcha:</label>
-                    <!-- El ID del input para que el JS lo lea -->
-                    <input type="text" id="captcha-input" required> 
+                    <!-- VALIDACIÓN DE CONTRASEÑA Y COINCIDENCIA -->
+                    <div class="password-validation-area">
+                        <div id="password-requirements">
+                            <ul>
+                                <li id="reg-req-length"><i class="fa-solid fa-times"></i> Mínimo 6 y máximo 10 caracteres.</li>
+                                <li id="reg-req-number"><i class="fa-solid fa-times"></i> Al menos 1 número (0-9).</li>
+                                <li id="reg-req-special"><i class="fa-solid fa-times"></i> Al menos 1 caracter especial (!@#$%^&*).</li>
+                                <li id="reg-req-common"><i class="fa-solid fa-times"></i> No puede ser una contraseña común.</li>
+                            </ul>
+                        </div>
+                        <div id="match-validation">
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li id="reg-req-match"><i class="fa-solid fa-times"></i> Las contraseñas coinciden.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- CAPTCHA -->
+                    <div class="captcha-group">
+                        <div class="captcha-display-wrapper">
+                            <span id="captcha-display" class="captcha-display">JUPRO</span> 
+                            <i id="captcha-refresh" class="fa-solid fa-sync-alt" style="cursor: pointer;"></i>
+                        </div>
+                        <label for="captcha-input">Introducir captcha:</label>
+                        <input type="text" id="captcha-input" required> 
+                    </div>
+
                 </div>
             </form>
 
             <div class="form-actions-bottom">
-                <!-- Se enlaza el botón al formulario con form="registrationForm" -->
                 <button type="submit" form="registrationForm" class="btn-register">Registrarse</button>
                 <button type="button" class="btn-cancel">Cancelar</button>
             </div>
         </div>
     </main>
 
-    <!-- Footer (Mantenido para consistencia) -->
+    <!-- Footer y Modal (AHORA VISIBLE) -->
     <footer class="site-footer">
         <div class="social-links">
             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
@@ -70,18 +110,13 @@
         </div>
     </footer>
     
-    <!-- MODAL DE ÉXITO DE REGISTRO (Estructura requerida por el CSS) -->
     <div id="success-modal" class="modal-backdrop">
         <div class="modal-content">
             <h2>¡Registro Exitoso!</h2>
             <p>Tu cuenta ha sido creada. Ahora puedes iniciar sesión para acceder al portal.</p>
-            <!-- Este ID es programado en Js/captcha.js para la redirección -->
             <button id="btn-modal-accept">Aceptar</button>
         </div>
     </div>
     
-    <!-- LLAMADAS DE SCRIPTS (Al final del body) -->
-    <!-- Scripts ya definidos en el head para mejor carga, pero es buena práctica incluirlos aquí -->
-
 </body>
 </html>
