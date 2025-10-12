@@ -35,6 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             productsContainer.innerHTML = generateMockProducts(page);
             updatePaginationView();
+            
+            // ¡LLAMADA CLAVE! Adjunta los listeners del carrito a los nuevos botones.
+            if (typeof initCartListeners === 'function') {
+                initCartListeners(); 
+            }
         }, 300);
     }
     
@@ -55,63 +60,47 @@ document.addEventListener('DOMContentLoaded', () => {
                         <i class="fa-solid fa-star"></i> 4.${(mockId % 9)}
                     </div>
                     <span class="book-price-grid">$${(399 + mockId * 5)}</span>
+                    
+                    <!-- INICIO DEL CÓDIGO DE BOTONES DE CARRITO -->
+                    <div class="product-actions">
+                        <button class="btn-primary btn-add-to-cart" data-product-id="${mockId}">
+                            Añadir al Carrito
+                        </button>
+                        <button class="btn-secondary btn-buy-now">
+                            Comprar
+                        </button>
+                    </div>
+                    <!-- FIN DEL CÓDIGO DE BOTONES -->
                 </div>
             `;
         }
         return html;
     }
     
-    // --- LÓGICA AVANZADA DE PAGINACIÓN ---
+    // --- LÓGICA AVANZADA DE PAGINACIÓN (EXISTENTE) ---
 
-    /**
-     * Calcula el rango de páginas a mostrar (ej: 3, 4, [5], 6, 7).
-     */
     function calculatePaginationRange() {
-        const range = [];
-        const middle = Math.floor(MAX_PAGES_VISIBLE / 2);
+        const pages = [];
+        const delta = 2; 
+        const start = Math.max(2, currentPage - delta);
+        const end = Math.min(totalPages - 1, currentPage + delta);
 
-        let startPage = Math.max(2, currentPage - middle);
-        let endPage = Math.min(totalPages - 1, currentPage + middle);
-
-        // Ajuste para el inicio: si estamos cerca del final, llenamos el rango
-        if (endPage - startPage < MAX_PAGES_VISIBLE - 3) {
-            startPage = Math.max(2, endPage - (MAX_PAGES_VISIBLE - 3));
+        pages.push(1);
+        if (start > 2) { pages.push('...'); }
+        for (let i = start; i <= end; i++) {
+            if (i !== 1 && i !== totalPages) { pages.push(i); }
         }
-
-        // Ajuste para el final
-        if (startPage === 2 && endPage < MAX_PAGES_VISIBLE - 1) {
-             endPage = Math.min(totalPages - 1, MAX_PAGES_VISIBLE - 1);
-        }
-
-        // 1. Añadir la página 1 (siempre)
-        range.push(1);
-
-        // 2. Añadir '...' al inicio
-        if (startPage > 2) {
-            range.push('...');
-        }
-
-        // 3. Añadir el rango intermedio
-        for (let i = startPage; i <= endPage; i++) {
-            range.push(i);
-        }
-
-        // 4. Añadir '...' al final
-        if (endPage < totalPages - 1) {
-            range.push('...');
-        }
+        if (end < totalPages - 1) { pages.push('...'); }
+        if (totalPages > 1 && !pages.includes(totalPages)) { pages.push(totalPages); }
         
-        // 5. Añadir la última página (si no está ya incluida)
-        if (!range.includes(totalPages)) {
-             range.push(totalPages);
-        }
-        
-        return Array.from(new Set(range.filter(p => p !== '...')));
+        const uniquePages = Array.from(new Set(pages));
+        const finalPages = uniquePages.filter((p, index) => {
+            if (p === '...' && uniquePages[index - 1] === 1) return false;
+            return true;
+        });
+        return finalPages;
     }
 
-    /**
-     * Reconstruye y actualiza visualmente la paginación.
-     */
     function updatePaginationView() {
         const pages = calculatePaginationRange();
         let html = '';
@@ -129,18 +118,14 @@ document.addEventListener('DOMContentLoaded', () => {
         attachPaginationListeners();
     }
 
-    /**
-     * Maneja la entrada de página personalizada al hacer doble clic en el último número.
-     */
     function handleCustomPageInput(span) {
         const input = document.createElement('input');
         input.type = 'number';
         input.min = 1;
         input.max = totalPages;
-        input.value = currentPage;
+        input.value = span.getAttribute('data-page');
         input.className = 'custom-page-input';
         
-        // Reemplaza el span por el input
         span.parentNode.replaceChild(input, span);
         input.focus();
 
@@ -149,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isNaN(newPage) && newPage >= 1 && newPage <= totalPages) {
                 loadProducts(newPage);
             } else {
-                // Si la entrada es inválida, simplemente recargamos la vista actual
                 updatePaginationView();
             }
         };
@@ -163,28 +147,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    /**
-     * Adjunta los listeners de click a todos los elementos de paginación.
-     */
     function attachPaginationListeners() {
-        // Clicks en números de página
         document.querySelectorAll('.page-number').forEach(span => {
+            const page = parseInt(span.getAttribute('data-page'));
+            
             span.addEventListener('click', () => {
-                const page = parseInt(span.getAttribute('data-page'));
                 loadProducts(page);
             });
             
-            // Doble Clic en el último número para entrada personalizada
-            if (parseInt(span.getAttribute('data-page')) === totalPages) {
+            if (page === totalPages) {
                  span.addEventListener('dblclick', () => handleCustomPageInput(span));
             }
         });
 
-        // Clicks en Previous/Next
         if (prevBtn) prevBtn.onclick = () => loadProducts(currentPage - 1);
         if (nextBtn) nextBtn.onclick = () => loadProducts(currentPage + 1);
 
-        // Actualizar el estado disabled de los botones
         if (prevBtn) prevBtn.disabled = currentPage === 1;
         if (nextBtn) nextBtn.disabled = currentPage === totalPages;
     }

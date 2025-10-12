@@ -11,6 +11,8 @@
     <script src="../../Js/userDropdown.js"></script>
     <script src="../../Js/productLoader.js"></script>
     <script src="../../Js/filterSidebar.js"></script>
+    <script src="../../Js/cartManager.js"></script>
+    <script src="../JS/Boton_Ini.js"></script>
 </head>
 <body>
 
@@ -34,8 +36,16 @@
         </nav>
         
         <div class="auth-actions user-actions">
-            <a href="#" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="#" class="icon-link"><i class="fa-solid fa-bell"></i></a>
+            <!-- Botón de Notificación (lo dejamos como botón para consistencia) -->
+            <button class="icon-button"><i class="fa-solid fa-bell"></i></button>
+            <button class="icon-button"><i class="fa-solid fa-house"></i></button>
+
+            <!-- Botón del Carrito: Contenedor con badge -->
+            <button class="icon-button cart-button" id="cart-icon-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <!-- CIRCULO DE CONTEO (Badge) -->
+                <span class="cart-badge" id="cart-count">0</span> 
+            </button>
             
             <div class="avatar-dropdown-container">
                 <img src="../../Imagenes/avatar.png" alt="Avatar Usuario" class="avatar" id="avatar-btn">

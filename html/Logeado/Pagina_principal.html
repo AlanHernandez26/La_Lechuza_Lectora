@@ -10,6 +10,8 @@
     <link rel="icon" type="image/x-icon" href="../../Imagenes/logo.png">
     <link rel="stylesheet" href="../../Estilos/Estilo1.css"> 
     <script src="../../JS/UserDropdown.js"></script>
+    <script src="../../Js/cartManager.js"></script>
+    <script src="../../Js/productLoader.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
@@ -33,8 +35,15 @@
         </nav>
         
         <div class="auth-actions user-actions">
-            <a href="#" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="#" class="icon-link"><i class="fa-solid fa-bell"></i></a>
+            <!-- Botón de Notificación (lo dejamos como botón para consistencia) -->
+            <button class="icon-button"><i class="fa-solid fa-bell"></i></button>
+
+            <!-- Botón del Carrito: Contenedor con badge -->
+            <button class="icon-button cart-button" id="cart-icon-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <!-- CIRCULO DE CONTEO (Badge) -->
+                <span class="cart-badge" id="cart-count">0</span> 
+            </button>
     <!-- CONTENEDOR DEL AVATAR Y EL MENÚ DESPLEGABLE -->
             <div class="avatar-dropdown-container">
                 <img src="../../Imagenes/avatar.png" alt="Avatar Usuario" class="avatar" id="avatar-btn">
