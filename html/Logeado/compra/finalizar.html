@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Paso 4</title>
+    <link rel="stylesheet" href="../../../Estilos/Estilo1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="form-page">
+    <header class="navbar user-navbar">...</header>
+    <main class="main-content cart-main">
+        <div class="background-overlay" style="filter: brightness(0.8);"></div>
+
+        <div class="checkout-container">
+            <h1 class="checkout-title">4. Confirmar y Finalizar Compra</h1>
+            
+            <div class="checkout-step-content">
+                
+                <h2>Resumen Final</h2>
+                <div class="final-summary-area">
+                    <div class="final-section">
+                        <h3>Dirección de Envío:</h3>
+                        <p id="final-address">Av. Los Pinos #123, Col. Centro, CDMX, 01000.</p>
+                    </div>
+                    <div class="final-section">
+                        <h3>Método de Pago:</h3>
+                        <p id="final-payment">PayPal (usuario@ejemplo.com)</p>
+                    </div>
+                    <div class="final-section final-totals">
+                        <h3>Total del Pedido:</h3>
+                        <strong id="final-total">$457.00</strong>
+                    </div>
+                </div>
+                
+                <div class="navigation-actions">
+                    <button class="btn-dark-action btn-prev-step" data-prev-step="pago">
+                        ← Regresar
+                    </button>
+                    <!-- BOTÓN CLAVE: Activa la SIMULACIÓN DE COMPRA FINAL -->
+                    <button class="btn-primary" id="btn-finalizar-compra">
+                        PAGAR Y FINALIZAR COMPRA
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL DE ÉXITO DE COMPRA (Oculto por defecto) -->
+        <div id="compra-success-modal" class="modal-backdrop">
+            <div class="modal-content">
+                <h2>¡Compra Finalizada!</h2>
+                <p>Tu pedido ha sido procesado con éxito. Recibirás una confirmación por correo.</p>
+                <button id="btn-modal-compra-accept">Continuar</button>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="copyright">
+            © Todos los derechos reservados 2025. Diseñado por La Lechuza Lectora ©
+        </div>
+    </footer>
+    <script src="../../../Js/checkoutManager.js"></script>
+</body>
+</html>

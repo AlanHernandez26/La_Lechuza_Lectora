@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Domicilio</title>
+    <!-- RUTA CSS: Sube dos niveles a Código/ y baja a Estilos/ -->
+    <link rel="stylesheet" href="../../Estilos/Estilo1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="form-page">
+    
+    <!-- HEADER SIMPLIFICADO DE CHECKOUT -->
+    <header class="navbar user-navbar">
+        <div class="logo-container">
+            <!-- RUTA IMAGEN: Sube dos niveles a Código/ y baja a Imagenes/ -->
+            <img src="../../Imagenes/logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
+            <span class="site-name">LA LECHUZA LECTORA</span>
+        </div>
+        <div class="auth-actions user-actions">
+            <!-- Botón Casita (Home) -->
+            <button class="icon-button"><i class="fa-solid fa-house"></i></button>
+        </div>
+    </header>
+
+    <main class="main-content form-main">
+        <!-- El fondo de estantería se aplica en CSS -->
+        <div class="background-overlay" style="filter: brightness(0.6);"></div>
+
+        <!-- Tarjeta de Formulario (Usamos la clase large-form-card para el diseño de tres columnas) -->
+        <div class="form-card large-form-card">
+            <h1>Agregar Nuevo Domicilio</h1>
+
+            <!-- Formulario principal con ID para JS -->
+            <form id="address-form" class="address-grid">
+                <!-- Columna 1 -->
+                <div class="input-group">
+                    <label for="direccion">Dirección o lugar de entrega</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+                <div class="input-group">
+                    <label for="cp">Código Postal</label>
+                    <input type="text" id="cp" name="cp" required>
+                </div>
+                <div class="input-group">
+                    <label for="estado">Estado</label>
+                    <input type="text" id="estado" name="estado" required>
+                </div>
+                <div class="input-group">
+                    <label for="municipio">Municipio o alcaldía</label>
+                    <input type="text" id="municipio" name="municipio" required>
+                </div>
+                
+                <!-- Columna 2 -->
+                <div class="input-group">
+                    <label for="localidad">Localidad</label>
+                    <input type="text" id="localidad" name="localidad" required>
+                </div>
+                <div class="input-group">
+                    <label for="colonia">Colonia o barrio</label>
+                    <input type="text" id="colonia" name="colonia" required>
+                </div>
+                <div class="input-group">
+                    <label for="numero">Número interior/Departamento (opcional)</label>
+                    <input type="text" id="numero" name="numero">
+                </div>
+                <div class="input-group">
+                    <label for="tipo_domicilio">Tipo de domicilio (Ej. Casa, Trabajo)</label>
+                    <input type="text" id="tipo_domicilio" name="tipo_domicilio" required>
+                </div>
+
+                <!-- Columna 3 -->
+                <div class="input-group">
+                    <label for="nombre">Nombre y apellido de contacto</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="input-group">
+                    <label for="telefono">Teléfono de contacto</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="input-group">
+                    <label for="indicaciones">Indicaciones para la entrega (opcional)</label>
+                    <textarea id="indicaciones" name="indicaciones" rows="3"></textarea>
+                </div>
+            </form>
+
+            <div class="form-actions-bottom">
+                <!-- Este botón activa la lógica en checkoutManager.js para mostrar el modal de éxito -->
+                <button type="submit" form="address-form" id="btn-guardar-domicilio" class="btn-primary">
+                    Guardar Domicilio
+                </button>
+                <!-- Botón de regreso directo a la página de selección de domicilio -->
+                <button type="button" class="btn-cancel" onclick="window.location.href='compra/domicilio.html'">
+                    Cancelar y Regresar
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="copyright">
+            © Todos los derechos reservados 2025. Diseñado por La Lechuza Lectora ©
+        </div>
+    </footer>
+    
+    <!-- MODAL DE ÉXITO (Se requiere en el body para que JS lo pueda mostrar) -->
+    <div id="custom-success-modal" class="modal-backdrop">
+        <div class="modal-content">
+            <h2 id="custom-modal-title"></h2>
+            <p id="custom-modal-message"></p>
+            <!-- Este botón es programado en checkoutManager.js para redirigir a domicilio.html -->
+            <button id="btn-modal-accept-success">Aceptar</button>
+        </div>
+    </div>
+    
+    <!-- LLAMADA CRÍTICA A JAVASCRIPT: Activa el botón de guardar y el modal -->
+    <script src="../../Js/checkoutManager.js"></script>
+</body>
+</html>

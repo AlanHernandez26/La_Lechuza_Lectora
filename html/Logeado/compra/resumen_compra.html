@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Compra - Paso 1</title>
+    <link rel="stylesheet" href="../../../Estilos/Estilo1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="form-page">
+
+    <header class="navbar user-navbar">
+        <!-- Header simplificado para checkout -->
+    </header>
+
+    <main class="main-content cart-main">
+        <div class="background-overlay" style="filter: brightness(0.8);"></div>
+
+        <div class="checkout-container">
+            <h1 class="checkout-title">1. Resumen de tu Pedido</h1>
+            
+            <div class="checkout-grid">
+                
+                <!-- Columna 1: Productos -->
+                <div class="product-list-wrapper">
+                    <h2>Artículos en tu Carrito</h2>
+                    <!-- Contenedor inyectado desde JS -->
+                    <div id="checkout-product-list">
+                        <!-- Productos del carrito se renderizarán aquí -->
+                    </div>
+                </div>
+
+                <!-- Columna 2: Totales y Navegación -->
+                <div class="checkout-summary-card">
+                    <h2>Totales</h2>
+                    <div class="summary-details">
+                        <div class="summary-line">
+                            <p>Subtotal de productos:</p>
+                            <span id="subtotal-display">$0.00</span>
+                        </div>
+                        <div class="summary-line">
+                            <p>Costo de Envío:</p>
+                            <span id="shipping-display">Gratis</span>
+                        </div>
+                        <hr>
+                        <div class="summary-line total-line">
+                            <p>Total Final:</p>
+                            <strong id="total-display">$0.00</strong>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary btn-next-step" data-next-step="direccion">
+                        Continuar a Dirección
+                    </button>
+                    <button class="btn-secondary btn-cancel-checkout">
+                        Cancelar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="copyright">
+            © Todos los derechos reservados 2025. Diseñado por La Lechuza Lectora ©
+        </div>
+    </footer>
+    <script src="../../../Js/cartManager.js"></script>
+    <script src="../../../Js/checkoutManager.js"></script>
+</body>
+</html>

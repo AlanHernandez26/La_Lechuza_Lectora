@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domicilio - Paso 2</title>
+    <!-- RUTA CSS: Sube 3 niveles a Código/ y baja a Estilos/ -->
+    <link rel="stylesheet" href="../../../Estilos/Estilo1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="../../../JS/checkoutManager.js"></script>
+    <script src="../../../JS/chechoutNavigation.js"></script>
+</head>
+<body class="form-page">
+    
+    <main class="main-content cart-main">
+        <div class="background-overlay" style="filter: brightness(0.8);"></div>
+
+        <div class="checkout-container">
+            <h1 class="checkout-title">2. Seleccionar Domicilio</h1>
+            
+            <div class="checkout-step-content">
+                
+                <h2>Direcciones Guardadas</h2>
+                <div id="address-list-container" class="address-list">
+                    <!-- Las direcciones se renderizarán aquí -->
+                    <label class="address-option selected">
+                        <input type="radio" name="delivery_address" value="address1" checked>
+                        <strong>Casa (Principal)</strong> - Av. Los Pinos #123, Col. Centro, CDMX, 01000.
+                    </label>
+                    <label class="address-option">
+                        <input type="radio" name="delivery_address" value="address2">
+                        <strong>Oficina</strong> - Calle Falsa #456, Col. Sur, CDMX, 02000.
+                    </label>
+                </div>
+                
+                <!-- BOTÓN AGREGAR DOMICILIO: Programado en checkoutManager.js -->
+                <button class="btn-secondary btn-add-address" id="btn-add-address">
+                    <i class="fas fa-plus-circle"></i> Agregar Nuevo Domicilio
+                </button>
+                
+                <div class="navigation-actions">
+                    <!-- BOTÓN REGRESAR: Data-step apunta a 'resumen_compra' -->
+                    <button class="btn-dark-action btn-prev-step" data-prev-step="resumen_compra">
+                        ← Regresar
+                    </button>
+                    <!-- BOTÓN CONTINUAR: Data-step apunta a 'pago' -->
+                    <button class="btn-primary btn-next-step" data-next-step="pago">
+                        Continuar a Método de Pago →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div class="copyright">
+            © Todos los derechos reservados 2025. Diseñado por La Lechuza Lectora ©
+        </div>
+    </footer>
+    
+    <!-- LLAMADA CRÍTICA A JAVASCRIPT: Activa los botones -->
+    
+    
+    <!-- MODAL DE ÉXITO (Para Agregar_domicilio.html) -->
+    <div id="custom-success-modal" class="modal-backdrop">
+        <div class="modal-content">
+            <h2 id="custom-modal-title"></h2>
+            <p id="custom-modal-message"></p>
+            <button id="btn-modal-accept-success">Aceptar</button>
+        </div>
+    </div>
+</body>
+</html>

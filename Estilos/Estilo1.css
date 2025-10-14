@@ -3117,3 +3117,325 @@ a { text-decoration: none; color: inherit; }
     color: var(--color-text-light);
     border: none;
 }
+
+/* --- ESTILOS DE LA PÁGINA CARRITO (carrito.html) --- */
+
+.cart-items-list {
+    /* Mantenemos el estilo de tarjeta base */
+    background-color: var(--color-background-card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto; /* Imagen, Detalles, Precio */
+    gap: 15px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 120px;
+    object-fit: contain;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.4;
+}
+
+.item-details h2 {
+    font-size: 1.2em;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.item-details p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+}
+
+.item-price {
+    font-size: 1.3em;
+    font-weight: 700;
+    color: var(--color-primary);
+    align-self: flex-start; /* Alinea el precio total del item a la parte superior */
+    margin-top: 15px;
+}
+
+/* Controles de Cantidad (+/-) */
+.item-quantity-controls {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.btn-qty-control {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: var(--color-primary);
+    width: 25px;
+    height: 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+.item-quantity-display {
+    padding: 0 10px;
+    min-width: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Botón Quitar */
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--color-red);
+    font-size: 0.85em;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    text-align: left;
+    margin-top: 5px;
+}
+
+/* Resumen (Footer) */
+.cart-summary-wrapper {
+    max-width: 400px; /* Limita el ancho del resumen para que no sea muy grande */
+    margin-left: auto; /* Mueve el resumen a la derecha */
+}
+.cart-summary {
+    background-color: var(--color-background-dark);
+    color: var(--color-text-light);
+    padding: 20px;
+    border-radius: 10px;
+}
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+}
+.total-line {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-top: 15px;
+}
+#btn-start-checkout {
+    /* Estilo del botón 'Continuar con la compra' */
+    width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   ESTILOS DEL PROCESO DE COMPRA (CHECKOUT)
+   ========================================================================== */
+
+.checkout-container {
+    position: relative;
+    z-index: 5;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: var(--color-background-card);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-title {
+    color: var(--color-primary);
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Productos vs Resumen */
+    gap: 30px;
+}
+
+/* --- Resumen y Totales (Columna derecha) --- */
+.checkout-summary-card {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    height: fit-content;
+}
+
+.checkout-summary-card h2, .checkout-step-content h2 {
+    font-size: 1.4em;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 10px;
+}
+
+.summary-details .summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.summary-details hr {
+    margin: 15px 0;
+    border-color: #ddd;
+}
+
+.summary-details .total-line strong {
+    font-size: 1.5em;
+    color: var(--color-red);
+}
+
+/* --- Botones de Navegación --- */
+.navigation-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.navigation-actions button {
+    flex: 1;
+    padding: 10px 15px;
+    font-weight: 700;
+}
+
+/* --- Estilos para Dirección y Pago (Radio/Checkbox Lists) --- */
+.address-list, #payment-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.address-option, .payment-option {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95em;
+}
+
+.address-option.selected, .payment-option.selected {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 5px rgba(251, 192, 45, 0.5);
+}
+
+.address-option input[type="radio"], .payment-option input[type="radio"] {
+    margin-right: 15px;
+}
+
+.payment-option i {
+    margin-right: 10px;
+    color: var(--color-primary);
+}
+
+.btn-add-address, .btn-add-payment {
+    width: auto;
+    margin-top: 20px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+/* --- Finalizar Compra --- */
+.final-summary-area {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.final-section {
+    margin-bottom: 20px;
+}
+
+.final-section h3 {
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.final-section p {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.final-section.final-totals strong {
+    font-size: 2em;
+    color: var(--color-red);
+}
+
+
+/* --- MODAL DE ÉXITO DE COMPRA --- */
+.modal-backdrop {
+    /* [Debe tener display: flex para mostrarse] */
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+#btn-modal-compra-accept {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* RESPONSIVIDAD */
+@media (max-width: 768px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+    .checkout-summary-card {
+        order: -1; /* Mover el resumen al inicio en móvil */
+        margin-bottom: 20px;
+    }
+    .navigation-actions {
+        flex-direction: column;
+    }
+}
