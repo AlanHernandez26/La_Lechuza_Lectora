@@ -6,13 +6,13 @@
     <title>La Lechuza Lectora - Carrito</title>
     <link rel="stylesheet" href="../../Estilos/Estilo1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Carga los scripts de usuario logeado y de manejo del carrito -->
+
     <script src="../../Js/userDropdown.js"></script>
     <script src="../../Js/cartManager.js"></script> 
 </head>
 <body>
 
-    <!-- Header (Asume estructura logeada) -->
+
     <header class="navbar user-navbar">
         <div class="logo-container">
             <img src="../../Imagenes/logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
@@ -27,16 +27,16 @@
         </nav>
         
         <div class="auth-actions user-actions">
-            <!-- Botón de Notificación -->
+
             <button class="icon-button"><i class="fa-solid fa-bell"></i></button>
 
-            <!-- Botón del Carrito con Badge -->
+
             <button class="icon-button cart-button" id="cart-icon-btn">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-badge" id="cart-count">0</span> 
             </button>
             
-            <!-- Avatar Dropdown (ya debe estar programado) -->
+
             <div class="avatar-dropdown-container">
                 <img src="../../Imagenes/avatar.png" alt="Avatar Usuario" class="avatar" id="avatar-btn">
                 <div class="dropdown-menu" id="avatar-dropdown">
@@ -47,7 +47,7 @@
         </div>
     </header>
 
-    <!-- Contenido Principal: Carrito -->
+
     <main class="main-content cart-main">
         <div class="background-overlay" style="filter: brightness(0.8);"></div>
 
@@ -57,18 +57,18 @@
                 <h1 class="cart-title">Productos de tu carrito</h1>
                 <p class="cart-subtitle">Las mejores ofertas en el mundo en la lechuza lectora</p>
 
-                <!-- CONTENEDOR DONDE SE RENDERIZAN LOS PRODUCTOS -->
+
                 <div id="cart-items-container">
-                    <!-- Los productos se inyectarán aquí dinámicamente con la plantilla de abajo -->
+
                 </div>
                 
-                <!-- Mensaje cuando el carrito está vacío -->
+
                 <div id="empty-cart-message" style="text-align: center; color: #888; margin-top: 30px; display: none;">
                     Tu carrito está vacío. ¡Es hora de comprar algunos libros!
                 </div>
             </div>
 
-            <!-- Resumen de Compra -->
+
             <div class="cart-summary-wrapper">
                 <div class="cart-summary">
                     <div class="summary-line">
@@ -83,14 +83,14 @@
                         <p>Total a pagar</p>
                         <strong id="total-display">$0.00</strong>
                     </div>
-                    <!-- El botón para avanzar al PROCESO DE COMPRA -->
+
                     <button class="btn-checkout" id="btn-start-checkout">Continuar con la compra</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
+
     <footer class="site-footer">
         <div class="social-links">
             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>

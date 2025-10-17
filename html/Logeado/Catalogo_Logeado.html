@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Lechuza Lectora - Catálogo (Sesión Iniciada)</title>
-    <!-- RUTA CSS: Sube dos niveles a Código/ y baja a Estilos/ -->
+
     <link rel="stylesheet" href="../../Estilos/Estilo1.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- Enlaza los scripts de usuario logeado y de carga de productos -->
+
     <script src="../../Js/userDropdown.js"></script>
     <script src="../../Js/productLoader.js"></script>
     <script src="../../Js/filterSidebar.js"></script>
@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <!-- Header con Búsqueda y Avatar (Logeado) -->
+
     <header class="navbar detail-navbar">
         <div class="logo-container">
             <img src="../../Imagenes/logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
@@ -36,11 +36,11 @@
         </nav>
         
         <div class="auth-actions user-actions">
-            <!-- Botón de Notificación (lo dejamos como botón para consistencia) -->
+
             <button class="icon-button"><i class="fa-solid fa-bell"></i></button>
             <button class="icon-button"><i class="fa-solid fa-house"></i></button>
 
-            <!-- Botón del Carrito: Contenedor con badge -->
+
             <button class="icon-button cart-button" id="cart-icon-btn">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="cart-badge" id="cart-count">0</span>
@@ -57,11 +57,11 @@
         </div>
     </header>
 
-    <!-- Contenido Principal: Catálogo (Dinámico) -->
+
     <main class="main-content catalog-main">
         <div class="background-overlay" style="filter: brightness(0.8);"></div>
         
-        <!-- Botón visible en móvil/tablet para abrir los filtros -->
+
         <button id="filter-toggle" class="btn-filter-toggle">
             <i class="fa-solid fa-filter"></i> Filtros
         </button>

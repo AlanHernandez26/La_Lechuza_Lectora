@@ -1,15 +1,11 @@
-/* ==========================================================================
-   VARIABLES Y ESTILOS BASE (Incluye la primera página)
-   ========================================================================== */
-
 :root {
-    --color-primary: #5d4037; /* Marrón oscuro/tierra para el sitio */
-    --color-secondary: #fbc02d; /* Amarillo/Dorado para estrellas y acentos */
+    --color-primary: #5d4037;
+    --color-secondary: #fbc02d;
     --color-text-light: #ffffff;
     --color-text-dark: #333333;
-    --color-background-card: rgba(240, 231, 203, 0.9); /* Blanco semitransparente */
-    --color-background-dark: #2c2c2c; /* Oscuro para el footer */
-    --color-form-bg: rgba(245, 245, 245, 0.95); /* Fondo de formulario crema/marrón claro */
+    --color-background-card: rgba(240, 231, 203, 0.9);
+    --color-background-dark: #2c2c2c;
+    --color-form-bg: rgba(245, 245, 245, 0.95);
     --color-paypal-blue: #0070BA;
     --color-red: #d32f2f;
     --color-blue: #1976d2;
@@ -18,12 +14,11 @@
     --color-lightblue: #03a9f4;
 }
 
-/* Estilos Generales */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif; /* Fuente principal */
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -35,22 +30,17 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-
-/* ==========================================================================
-   HEADER Y NAVBAR
-   ========================================================================== */
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    background-color: var(--color-background-card); /* Fondo semitransparente para el navbar */
-    position: fixed; /* Fijo en la parte superior */
+    background-color: var(--color-background-card);
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -64,7 +54,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .logo {
-    height: 40px; /* Tamaño del logo */
+    height: 40px;
     margin-right: 10px;
 }
 
@@ -74,7 +64,6 @@ a { text-decoration: none; color: inherit; }
     color: var(--color-primary);
 }
 
-/* Barra de Búsqueda */
 .search-bar {
     display: flex;
     align-items: center;
@@ -82,7 +71,7 @@ a { text-decoration: none; color: inherit; }
     border: 1px solid #ccc;
     border-radius: 20px;
     padding: 5px 15px;
-    flex-grow: 1; /* Permite que ocupe espacio central */
+    flex-grow: 1;
     max-width: 500px;
     margin: 0 20px;
 }
@@ -100,7 +89,6 @@ a { text-decoration: none; color: inherit; }
     font-size: 1em;
 }
 
-/* Enlaces de Navegación */
 .nav-links a {
     text-decoration: none;
     color: var(--color-text-dark);
@@ -120,7 +108,6 @@ a { text-decoration: none; color: inherit; }
     color: var(--color-text-light);
 }
 
-/* Acciones de Autenticación/Usuario/Admin */
 .auth-actions {
     display: flex;
     align-items: center;
@@ -174,15 +161,11 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-/* ==========================================================================
-   BOTONES
-   ========================================================================== */
-
 .btn-primary, .btn-confirm, .btn-register, .btn-checkout, .btn-confirm-card {
     background-color: var(--color-primary);
     color: var(--color-text-light);
     border: none;
-    padding: 8px 15px; /* Primeros botones tenían 8px 15px */
+    padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 700;
@@ -190,10 +173,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 .btn-primary:hover, .btn-confirm:hover, .btn-register:hover {
-    background-color: #4e342e; /* Color más oscuro al pasar el ratón */
+    background-color: #4e342e;
 }
 
-/* Botón secundario (Crear Cuenta / Ir a mi cuenta) */
 .btn-secondary, .btn-account-link {
     background-color: transparent;
     color: var(--color-primary);
@@ -221,49 +203,41 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-/* ==========================================================================
-   FONDO Y CONTENIDO PRINCIPAL
-   ========================================================================== */
-
 .main-content {
     flex-grow: 1;
     position: relative;
-    padding-top: 60px; /* Espacio para el navbar fijo */
+    padding-top: 60px;
 }
 
-/* Fondo de Estantería y Overlay */
 .background-overlay {
-    position: fixed; /* Mejor para cubrir toda la ventana */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('bookshelf.jpg'); 
+    background-image: url('bookshelf.jpg');
     background-size: cover;
     background-position: center;
-    filter: brightness(0.6) blur(1px); /* Estilo de la primera página */
+    filter: brightness(0.6) blur(1px);
     z-index: 1;
 }
 
-/* Fondo para Dashboard y Perfil Admin (menos oscuro) */
 .dashboard-bg, .admin-profile-bg {
-    filter: brightness(0.9); 
+    filter: brightness(0.9);
 }
 
-/* Contenido Principal (Página de Inicio) */
 .content-container {
     position: relative;
     z-index: 5;
-    padding: 80px 40px; 
+    padding: 80px 40px;
     display: grid;
-    grid-template-columns: 2fr 1fr; 
-    grid-template-rows: auto auto; 
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto;
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Bloque de Bienvenida */
 .welcome-card {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
@@ -271,7 +245,7 @@ a { text-decoration: none; color: inherit; }
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    align-self: start; 
+    align-self: start;
 }
 
 .welcome-card h2 {
@@ -286,10 +260,9 @@ a { text-decoration: none; color: inherit; }
     margin-bottom: 20px;
 }
 
-/* Portada del Libro Destacado */
 .featured-book {
     grid-column: 2 / 3;
-    grid-row: 1 / span 2; 
+    grid-row: 1 / span 2;
     text-align: center;
     padding: 20px;
     align-self: center;
@@ -312,7 +285,6 @@ a { text-decoration: none; color: inherit; }
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
-/* Sección de Testimonios/Reseñas */
 .reviews-section {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
@@ -327,7 +299,7 @@ a { text-decoration: none; color: inherit; }
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    flex: 1; 
+    flex: 1;
     min-width: 280px;
 }
 
@@ -373,10 +345,6 @@ a { text-decoration: none; color: inherit; }
     color: #666;
 }
 
-
-/* ==========================================================================
-   FORMULARIOS (LOGIN, REGISTRO, TARJETA, PAYPAL, DIRECCIÓN)
-   ========================================================================== */
 
 .form-main {
     display: flex;
@@ -428,7 +396,6 @@ a { text-decoration: none; color: inherit; }
     width: 100%;
 }
 
-/* Login/Admin Login */
 .login-card {
     max-width: 450px;
 }
@@ -488,7 +455,6 @@ a { text-decoration: none; color: inherit; }
     margin: 20px auto 0 auto;
 }
 
-/* Large Form (Dirección, Registro) Specific */
 .large-form-card, .registration-card {
     max-width: 1000px;
     padding: 60px;
@@ -531,7 +497,6 @@ a { text-decoration: none; color: inherit; }
     margin: 0;
 }
 
-/* Payment Card Specific */
 .card-payment-form {
     max-width: 600px;
 }
@@ -557,10 +522,6 @@ a { text-decoration: none; color: inherit; }
     padding: 12px 30px;
 }
 
-
-/* ==========================================================================
-   MÉTODO DE PAGO (SELECCIÓN Y AGREGADO)
-   ========================================================================== */
 
 .payment-method-card {
     max-width: 500px;
@@ -635,7 +596,6 @@ a { text-decoration: none; color: inherit; }
     margin-top: 10px;
 }
 
-/* Gracias por tu Compra */
 .thank-you-card {
     max-width: 700px;
     text-align: center;
@@ -664,10 +624,6 @@ a { text-decoration: none; color: inherit; }
     font-weight: 700;
 }
 
-
-/* ==========================================================================
-   CARRITO
-   ========================================================================== */
 
 .cart-main {
     display: flex;
@@ -782,10 +738,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-/* ==========================================================================
-   CATÁLOGO Y DETALLES DE LIBRO
-   ========================================================================== */
-
 .catalog-main, .detail-main {
     display: flex;
     justify-content: center;
@@ -802,7 +754,6 @@ a { text-decoration: none; color: inherit; }
     gap: 30px;
 }
 
-/* Sidebar de Filtros */
 .filter-sidebar {
     background-color: var(--color-background-card);
     padding: 20px;
@@ -863,7 +814,6 @@ a { text-decoration: none; color: inherit; }
     margin-top: 5px;
 }
 
-/* Grid de Productos */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -926,7 +876,6 @@ a { text-decoration: none; color: inherit; }
     margin-top: 20px;
 }
 
-/* Detalles de Libro */
 .detail-content-container {
     position: relative;
     z-index: 5;
@@ -1067,8 +1016,6 @@ a { text-decoration: none; color: inherit; }
     font-size: 0.9em;
 }
 
-/* Carrusel y Paginación (compartido) */
-
 .related-books-carousel h2 {
     color: var(--color-text-light);
     margin-bottom: 15px;
@@ -1126,10 +1073,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-/* ==========================================================================
-   ADMINISTRACIÓN (DASHBOARD, INVENTARIO, REPORTES, PERFIL)
-   ========================================================================== */
-
 .dashboard-main {
     padding-top: 80px;
 }
@@ -1148,7 +1091,6 @@ a { text-decoration: none; color: inherit; }
     margin-bottom: 30px;
 }
 
-/* Dashboard Home */
 .action-buttons-grid {
     display: flex;
     justify-content: space-around;
@@ -1223,7 +1165,6 @@ a { text-decoration: none; color: inherit; }
     font-weight: 700;
 }
 
-/* Gestión de Inventario */
 .inventory-container {
     max-width: 900px;
     background-color: var(--color-background-card);
@@ -1325,7 +1266,6 @@ a { text-decoration: none; color: inherit; }
     cursor: pointer;
 }
 
-/* Perfil Administrador */
 .profile-container {
     max-width: 900px;
     background-color: var(--color-background-card);
@@ -1425,7 +1365,6 @@ a { text-decoration: none; color: inherit; }
     margin: 0 auto;
 }
 
-/* Reportes */
 .report-container {
     width: 95%;
     max-width: 1200px;
@@ -1554,10 +1493,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-/* ==========================================================================
-   FOOTER (Estilos de la primera página)
-   ========================================================================== */
-
 .site-footer {
     padding: 10px 40px;
     background-color: var(--color-background-dark);
@@ -1569,7 +1504,7 @@ a { text-decoration: none; color: inherit; }
     font-size: 0.8em;
     width: 100%;
     z-index: 10;
-    margin-top: auto; /* Empuja el footer hacia abajo */
+    margin-top: auto;
 }
 
 .social-links a {
@@ -1583,12 +1518,7 @@ a { text-decoration: none; color: inherit; }
     color: var(--color-secondary);
 }
 
-/* ==========================================================================
-   MEDIA QUERIES - ADAPTABILIDAD (Móvil y Tablet)
-   ========================================================================== */
-
 @media (max-width: 1024px) {
-    /* TABLET: Ajustes para pantallas de hasta 1024px */
     .navbar {
         padding: 10px 20px;
     }
@@ -1601,79 +1531,66 @@ a { text-decoration: none; color: inherit; }
     }
     .content-container {
         padding: 70px 20px 30px;
-        /* Cambia el layout principal de 2 columnas grandes a 2 columnas más equilibradas */
         grid-template-columns: 1fr 1fr;
     }
     .featured-book {
-        /* Se mueve para ocupar menos espacio verticalmente */
         grid-column: 2 / 3;
         grid-row: 1 / 2;
     }
     .welcome-card {
-         grid-column: 1 / 2;
-         grid-row: 1 / 2;
-         padding: 20px;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        padding: 20px;
     }
     .reviews-section {
-        /* Ocupa todo el ancho en la parte inferior de la página de inicio */
         grid-column: 1 / 3;
         grid-row: 2 / 3;
         margin-top: 0;
     }
 
-    /* Formularios grandes (Dirección, Registro) */
     .address-grid, .registration-grid {
-        /* Pasa de 3 a 2 columnas */
         grid-template-columns: 1fr 1fr;
     }
     .registration-grid .captcha-group {
         grid-column: 2 / 3;
     }
     
-    /* Dashboard */
     .action-buttons-grid {
-        /* Botones de acción en 3 columnas */
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
     }
     .info-cards-grid {
-        /* Tarjetas de información en 2 columnas */
         grid-template-columns: 1fr 1fr;
     }
     .alerts-card {
-        /* Las alertas siguen ocupando todo el ancho */
         grid-column: 1 / -1;
     }
 }
 
 @media (max-width: 768px) {
-    /* MÓVIL: Ajustes para pantallas de hasta 768px (Apilamiento vertical) */
     
-    /* Navbar */
     .navbar {
         flex-wrap: wrap;
         justify-content: center;
         padding: 10px;
         padding-bottom: 20px;
-        position: relative; /* Ya no es fijo para no estorbar el contenido móvil */
+        position: relative;
         height: auto;
     }
     .search-bar {
-        order: 1; /* La barra de búsqueda se coloca en una línea separada */
+        order: 1;
         margin: 10px 0;
         max-width: 100%;
         flex-basis: 100%;
     }
     .nav-links {
-        display: none; /* Oculta los enlaces secundarios */
+        display: none;
     }
 
-    /* Contenido Principal (Página de Inicio) */
     .main-content {
         padding-top: 0;
     }
     .content-container {
-        /* Todo se apila en una sola columna */
         grid-template-columns: 1fr;
         padding: 20px;
     }
@@ -1682,22 +1599,18 @@ a { text-decoration: none; color: inherit; }
         grid-row: auto;
     }
     .reviews-section {
-        /* Las tarjetas de reseña se apilan verticalmente */
         flex-direction: column;
     }
 
-    /* Formularios */
     .large-form-card, .registration-card {
         padding: 30px;
         width: 100%;
     }
     .address-grid, .registration-grid {
-        /* Pasa a una sola columna */
         grid-template-columns: 1fr;
         gap: 15px;
     }
     .form-actions-bottom {
-        /* Botones se apilan */
         flex-direction: column;
         gap: 15px;
     }
@@ -1705,9 +1618,7 @@ a { text-decoration: none; color: inherit; }
         width: 100%;
     }
 
-    /* Catálogo y Filtros */
     .catalog-container {
-        /* Filtros y productos se apilan */
         grid-template-columns: 1fr;
         gap: 20px;
     }
@@ -1715,13 +1626,10 @@ a { text-decoration: none; color: inherit; }
         grid-column: 1 / -1;
     }
     .product-grid {
-        /* Se ajusta para mostrar más productos en filas */
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
-    /* Detalles de Libro */
     .detail-main-info {
-        /* Portada e info apilados */
         flex-direction: column;
         gap: 20px;
     }
@@ -1731,13 +1639,10 @@ a { text-decoration: none; color: inherit; }
         margin: 0 auto;
     }
 
-    /* Dashboard y Reportes */
     .action-buttons-grid {
-        /* Botones en 2 columnas */
         grid-template-columns: 1fr 1fr;
     }
     .info-cards-grid, .sales-report-grid, .key-metrics-grid, .charts-and-table-grid {
-        /* Todo se apila en una columna */
         grid-template-columns: 1fr;
     }
     .admin-actions-grid {
@@ -1748,24 +1653,17 @@ a { text-decoration: none; color: inherit; }
         margin: 0;
     }
 
-    /* Footer */
     .site-footer {
         flex-direction: column;
         gap: 5px;
     }
     
-    /* Reglas finales para garantizar la correcta herencia y comportamiento */
     .login-card button, .card-payment-form button {
         width: 100%;
         margin-top: 20px;
     }
 }
 
-/* ==========================================================================
-   NUEVOS ESTILOS PARA EL CARRUSEL DE FONDO (PÁGINA PRINCIPAL)
-   ========================================================================== */
-
-/* 1. Contenedor principal del Carrusel (Reemplaza .background-overlay) */
 .background-carousel {
     position: fixed;
     top: 0;
@@ -1773,52 +1671,43 @@ a { text-decoration: none; color: inherit; }
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 1; /* Debe estar detrás del contenido (z-index: 5) */
-    filter: brightness(0.6) blur(1px); /* Mantenemos el estilo oscuro/borroso */
+    z-index: 1;
+    filter: brightness(0.6) blur(1px);
 }
 
-/* 2. Contenedor de las imágenes (Figure) */
 .background-carousel figure {
-    position: absolute; /* Usamos 'absolute' para que se posicione dentro de .background-carousel */
-    width: 500%; /* 5 imágenes * 100% */
+    position: absolute;
+    width: 500%;
     height: 100%;
     margin: 0;
     left: 0;
     text-align: left;
     font-size: 0;
-    animation: 10s slide-background infinite; /* Usamos un nombre de animación único */
+    animation: 10s slide-background infinite;
 }
 
-/* 3. Estilo de cada imagen */
 .background-carousel figure img {
-    width: 20%; /* 100% de 500% es 20% */
+    width: 20%;
     height: 100%;
     float: left;
-    object-fit: cover; /* Asegura que la imagen cubra todo el fondo sin distorsionarse */
+    object-fit: cover;
 }
 
-/* 4. Definición de la animación */
 @keyframes slide-background {
-    /* Los porcentajes mueven el contenedor 'figure' horizontalmente */
     0% {left: 0%; }
     20% {left: 0%; }
-    25% {left: -100%; } /* Mueve a la Imagen 2 */
+    25% {left: -100%; }
     45% {left: -100%; }
-    50% {left: -200%; } /* Mueve a la Imagen 3 */
+    50% {left: -200%; }
     70% {left: -200%; }
-    75% {left: -300%; } /* Mueve a la Imagen 4 */
+    75% {left: -300%; }
     95% {left: -300%; }
-    100% {left: -400%; } /* Mueve a la Imagen 5 */
+    100% {left: -400%; }
 }
 
-/* 5. Eliminamos el estilo de fondo estático para la página principal */
 .background-overlay {
     display: none;
 }
-
-/* ==========================================================================
-   ACERCA DE (ABOUT)
-   ========================================================================== */
 
 .about-container {
     position: relative;
@@ -1852,7 +1741,7 @@ a { text-decoration: none; color: inherit; }
 
 .history-section {
     display: grid;
-    grid-template-columns: 3fr 1fr; /* Texto más ancho que la ilustración */
+    grid-template-columns: 3fr 1fr;
     gap: 30px;
     margin-bottom: 40px;
     border-bottom: 1px solid #ddd;
@@ -1865,14 +1754,14 @@ a { text-decoration: none; color: inherit; }
 
 .logo-illustration img {
     width: 100%;
-    max-width: 200px; /* Tamaño del logo en la columna */
+    max-width: 200px;
     height: auto;
     margin-top: 20px;
 }
 
 .mission-values-grid {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Misión más pequeña que Valores */
+    grid-template-columns: 1fr 2fr;
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -1893,10 +1782,6 @@ a { text-decoration: none; color: inherit; }
     line-height: 1.5;
 }
 
-
-/* ==========================================================================
-   CONTACTO
-   ========================================================================== */
 
 .contact-container {
     position: relative;
@@ -1924,7 +1809,7 @@ a { text-decoration: none; color: inherit; }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Formulario más ancho que info social */
+    grid-template-columns: 2fr 1fr;
     gap: 40px;
     text-align: left;
 }
@@ -1941,7 +1826,7 @@ a { text-decoration: none; color: inherit; }
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    opacity: 0.1; /* Logo grande como fondo del formulario */
+    opacity: 0.1;
     z-index: 1;
 }
 
@@ -2007,10 +1892,6 @@ a { text-decoration: none; color: inherit; }
     color: #555;
 }
 
-
-/* ==========================================================================
-   AYUDA (HELP)
-   ========================================================================== */
 
 .help-container {
     position: relative;
@@ -2098,7 +1979,6 @@ a { text-decoration: none; color: inherit; }
     line-height: 1.3;
 }
 
-/* Icon Colors */
 .icon-red { color: var(--color-red); }
 .icon-yellow { color: var(--color-secondary); }
 .icon-orange { color: var(--color-orange); }
@@ -2126,25 +2006,21 @@ a { text-decoration: none; color: inherit; }
     cursor: pointer;
 }
 
-/* --- Responsividad para las nuevas páginas --- */
-
 @media (max-width: 1024px) {
-    /* Acerca de */
     .history-section {
-        grid-template-columns: 1fr; /* Colapsa la ilustración a una columna */
+        grid-template-columns: 1fr;
     }
     .logo-illustration {
-        order: -1; /* Mueve la ilustración arriba */
+        order: -1;
         margin-bottom: 20px;
     }
     .mission-values-grid {
-        grid-template-columns: 1fr; /* Misión y Valores se apilan */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    /* Contacto */
     .contact-grid {
-        grid-template-columns: 1fr; /* Formulario e info social se apilan */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     .contact-container {
@@ -2153,7 +2029,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 @media (max-width: 768px) {
-    /* Ayuda */
     .help-container {
         padding: 20px;
     }
@@ -2169,38 +2044,32 @@ a { text-decoration: none; color: inherit; }
         margin-top: 5px;
     }
 
-    /* Acerca de */
     .logo-illustration img {
         max-width: 150px;
     }
 }
 
-/* --- Agrupación de Botones en Login --- */
-
 .login-action-buttons {
-    display: flex; /* Habilita el layout flexible */
-    gap: 10px; /* Espacio entre los botones */
-    margin-top: 30px; /* Separa del campo de contraseña */
-    margin-bottom: 10px; /* Espacio antes del botón administrativo */
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .login-action-buttons button {
-    flex: 1; /* Hace que cada botón ocupe el mismo espacio (mitad y mitad) */
-    width: auto; /* Anula el 100% de ancho forzado en .form-card button */
-    margin: 0; /* Elimina márgenes superiores innecesarios */
-    padding: 10px 15px; /* Ajusta el padding para que se vean más compactos */
+    flex: 1;
+    width: auto;
+    margin: 0;
+    padding: 10px 15px;
 }
 
-/* Ajuste específico para el botón administrativo, si no es parte del grupo */
 .btn-admin-switch {
-    /* Si quieres el botón administrativo justo debajo de los otros */
-    display: block; 
-    width: 100%; /* Para que ocupe todo el ancho bajo los otros dos */
+    display: block;
+    width: 100%;
     text-align: center;
-    margin-top: 10px; /* Separación */
+    margin-top: 10px;
 }
 
-/* Estilos para el nuevo botón de refresco y wrapper */
 .captcha-display-wrapper {
     display: flex;
     align-items: center;
@@ -2214,7 +2083,6 @@ a { text-decoration: none; color: inherit; }
 }
 
 .captcha-display {
-    /* El estilo base que ya tenías */
     background-color: #ddd;
     padding: 5px 15px;
     border: 1px dashed #999;
@@ -2222,28 +2090,21 @@ a { text-decoration: none; color: inherit; }
     font-weight: 700;
     text-align: center;
     width: 60%;
-    /* margin: 0 auto 10px auto; <-- Remover si usas el wrapper para centrar */
 }
 
-/* ==========================================================================
-   MODAL DE ÉXITO DE REGISTRO
-   ========================================================================== */
-
-/* Fondo oscuro que cubre toda la pantalla */
 .modal-backdrop {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Gris oscuro semi-transparente */
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 2000;
     justify-content: center;
     align-items: center;
 }
 
-/* Contenedor central del mensaje */
 .modal-content {
     background-color: var(--color-background-card);
     padding: 40px;
@@ -2287,11 +2148,6 @@ a { text-decoration: none; color: inherit; }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   CSS ADICIONAL PARA VISIBILIDAD DE CONTRASEÑA
-   ========================================================================== */
-
-/* Wrapper para posicionar el icono dentro del input */
 .password-wrapper {
     position: relative;
     display: flex;
@@ -2300,19 +2156,17 @@ a { text-decoration: none; color: inherit; }
 }
 
 .password-wrapper input {
-    /* Asegura que el input se extienda y deja espacio para el icono */
-    width: 100%; 
-    padding-right: 40px; 
+    width: 100%;
+    padding-right: 40px;
 }
 
-/* Estilo y posicionamiento del icono del ojo */
 .password-toggle {
     position: absolute;
-    right: 15px; 
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #888; 
+    color: #888;
     transition: color 0.2s;
 }
 
@@ -2321,17 +2175,14 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-/* --- ESTILOS DE VALIDACIÓN --- */
-
 .change-password-card {
     max-width: 450px;
     padding: 40px;
 }
 
-/* Estilos de la lista de requisitos de seguridad */
 #password-requirements {
     margin-top: -5px;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     padding: 10px 0;
     border-top: 1px dashed #ccc;
     font-size: 0.85em;
@@ -2344,9 +2195,8 @@ a { text-decoration: none; color: inherit; }
     margin: 0;
 }
 
-/* Estilo de la lista de coincidencia */
 #match-validation {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px dashed #ccc;
     font-size: 0.85em;
@@ -2359,22 +2209,20 @@ a { text-decoration: none; color: inherit; }
     margin: 0;
 }
 
-/* Estilos de las líneas de requisito (Color y Tache/Paloma) */
 #password-requirements li, #match-validation li {
     line-height: 1.6;
-    color: red; 
+    color: red;
     display: flex;
     align-items: center;
 }
 
 #password-requirements li i, #match-validation li i {
-    width: 20px; 
+    width: 20px;
     margin-right: 5px;
     text-align: center;
 }
 
 
-/* Contenedor Flexbox para los dos botones */
 .action-buttons-group {
     display: flex;
     justify-content: space-between;
@@ -2392,15 +2240,14 @@ a { text-decoration: none; color: inherit; }
     transition: background-color 0.3s;
 }
 
-/* Estilos de botones */
 .action-buttons-group .btn-primary {
-    background-color: var(--color-primary); 
+    background-color: var(--color-primary);
     color: var(--color-text-light);
     border: none;
 }
 
 .action-buttons-group .btn-dark-action {
-    background-color: #555; 
+    background-color: #555;
     color: var(--color-text-light);
     border: none;
 }
@@ -2409,24 +2256,21 @@ a { text-decoration: none; color: inherit; }
     background-color: #333;
 }
 
-/* --- ESTILOS PARA EL MENÚ DESPLEGABLE DEL AVATAR --- */
-
 .avatar-dropdown-container {
-    position: relative; /* Contenedor para posicionar el menú de forma absoluta */
+    position: relative;
     display: inline-block;
 }
 
 .avatar {
     cursor: pointer;
-    /* (Ya tiene estilos de 40px y border-radius: 50% en .user-actions .avatar) */
 }
 
 .dropdown-menu {
-    display: none; /* Oculto por defecto, se muestra con JS */
+    display: none;
     position: absolute;
-    top: 50px; /* Separación debajo del avatar */
+    top: 50px;
     right: 0;
-    z-index: 1050; /* Asegura que esté por encima de casi todo */
+    z-index: 1050;
     background-color: #fff;
     min-width: 150px;
     border-radius: 8px;
@@ -2443,7 +2287,7 @@ a { text-decoration: none; color: inherit; }
     display: block;
     font-size: 0.9em;
     transition: background-color 0.2s;
-    margin: 0; /* Elimina el margen lateral que tienen los links del navbar */
+    margin: 0;
 }
 
 .dropdown-menu a:hover {
@@ -2451,13 +2295,8 @@ a { text-decoration: none; color: inherit; }
     color: var(--color-primary);
 }
 
-/* ==========================================================================
-   FILTROS DINÁMICOS Y ANIMACIONES DEL SIDEBAR
-   ========================================================================== */
-
-/* Botón de hamburguesa/filtro (Solo visible en móviles/tablets) */
 .btn-filter-toggle {
-    display: none; /* Oculto por defecto en escritorio */
+    display: none;
     background-color: var(--color-primary);
     color: var(--color-text-light);
     border: none;
@@ -2466,22 +2305,19 @@ a { text-decoration: none; color: inherit; }
     cursor: pointer;
     font-size: 1em;
     position: fixed;
-    top: 70px; /* Debajo del navbar */
+    top: 70px;
     left: 20px;
     z-index: 900;
 }
 
-/* Estilos de la barra lateral de filtros */
 .filter-sidebar {
-    /* Agregamos una transición para la animación de deslizamiento */
-    transition: transform 0.3s ease-out; 
-    transform: translateX(0); /* Posición inicial (visible en escritorio) */
+    transition: transform 0.3s ease-out;
+    transform: translateX(0);
     position: relative;
-    /* (Mantiene todos los estilos de color/sombra que ya tiene) */
 }
 
 .sidebar-header {
-    display: none; /* Oculto en escritorio */
+    display: none;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
@@ -2497,7 +2333,6 @@ a { text-decoration: none; color: inherit; }
     cursor: pointer;
 }
 
-/* Estilos del precio dinámico */
 .filter-price .price-values {
     display: flex;
     justify-content: space-between;
@@ -2508,62 +2343,50 @@ a { text-decoration: none; color: inherit; }
     width: 100%;
 }
 
-/* Tags Activos */
 .active-filter {
     cursor: default;
 }
 
 .active-filter i {
-    cursor: pointer; /* Hace que la X sea interactiva */
+    cursor: pointer;
     margin-left: 5px;
 }
 
 
-/* --- MEDIA QUERIES PARA RESPONSIVIDAD (Modo Móvil/Tablet) --- */
-
 @media (max-width: 1024px) {
     .catalog-container {
-        /* Cambiamos a una sola columna para que el contenido fluya */
         grid-template-columns: 1fr;
         gap: 0;
     }
     
-    /* El botón de filtro solo es visible en móviles */
     .btn-filter-toggle {
-        display: block; 
+        display: block;
     }
 
-    /* Ocultamos el sidebar por defecto en resoluciones pequeñas */
     .filter-sidebar {
         position: fixed;
         top: 0;
         left: 0;
         height: 100%;
-        max-width: 300px; /* Limita el ancho en móvil */
+        max-width: 300px;
         width: 80%;
-        transform: translateX(-100%); /* Oculto a la izquierda */
+        transform: translateX(-100%);
         z-index: 1000;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-        background-color: #fff; /* Fondo sólido para que no se vea el contenido debajo */
+        background-color: #fff;
         padding: 20px;
-        /* Sobreescribe el estilo del contenedor principal */
-        border-radius: 0 10px 10px 0; 
+        border-radius: 0 10px 10px 0;
     }
 
-    /* Clase activa: Muestra el sidebar deslizándolo */
     .filter-sidebar.active {
         transform: translateX(0);
     }
     
-    /* Mostramos el header del sidebar con el botón de cierre */
     .filter-sidebar .sidebar-header {
         display: flex;
     }
 }
 
-/* --- ESTILOS PARA LOS NUEVOS FILTROS --- */
-
-/* Estilos para el filtro de Páginas (Rango) */
 .filter-pages .page-range {
     margin-top: 10px;
 }
@@ -2576,7 +2399,6 @@ a { text-decoration: none; color: inherit; }
     width: 100%;
 }
 
-/* Estilos para los Swatches de Color */
 .color-options {
     display: flex;
     gap: 10px;
@@ -2597,11 +2419,10 @@ a { text-decoration: none; color: inherit; }
 }
 
 .color-swatch.selected {
-    border-color: var(--color-primary); /* Resaltado cuando está seleccionado */
+    border-color: var(--color-primary);
     box-shadow: 0 0 0 2px rgba(93, 64, 55, 0.5);
 }
 
-/* Ajuste general para todas las secciones de filtro */
 .filter-section h3 {
     font-size: 1.1em;
     color: var(--color-primary);
@@ -2624,27 +2445,22 @@ a { text-decoration: none; color: inherit; }
     margin-bottom: 10px;
 }
 
-/* --- Estilos para los Swatches de Color --- */
-
 .color-options {
-    /* ¡CAMBIO CLAVE! Usamos Grid para 3 columnas fijas. */
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Divide el espacio en 3 columnas iguales */
-    gap: 12px; /* Espacio entre las esferas */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
     margin-top: 10px;
 }
 
 .color-swatch {
-    width: 30px; /* Tamaño fijo */
+    width: 30px;
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
     border: 3px solid transparent;
     transition: all 0.2s ease;
-    /* QUITAMOS el flex/display:block para que grid lo maneje */
     
-    /* Centrado dentro de su celda de grid */
-    justify-self: center; 
+    justify-self: center;
     align-self: center;
 }
 
@@ -2653,67 +2469,56 @@ a { text-decoration: none; color: inherit; }
 }
 
 .color-swatch.selected {
-    border-color: var(--color-primary); 
+    border-color: var(--color-primary);
     box-shadow: 0 0 0 2px rgba(93, 64, 55, 0.5);
 }
 
-/* --- MODIFICACIONES EN EL CSS DEL CATÁLOGO --- */
-
-/* 1. Centrar el contenedor de paginación (Reemplazar o modificar la regla existente) */
 .carousel-nav.catalog-pagination {
-    /* Centra el bloque de paginación debajo de la cuadrícula de productos */
-    justify-content: center; 
+    justify-content: center;
     
-    /* Asegura que el bloque esté bien espaciado */
-    width: 100%; 
-    max-width: 1200px; 
-    margin: 40px auto; /* Centrado y gran espacio */
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 10px;
     
-    /* Forzamos el display flex para que los botones y números se centren */
-    display: flex; 
+    display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre los botones y los números */
+    gap: 10px;
 }
 
-/* 2. Estilo de los números de página (.pagination span) */
 .carousel-nav.catalog-pagination .pagination {
     display: flex;
     align-items: center;
-    gap: 5px; /* Espacio más compacto entre números */
+    gap: 5px;
 }
 
 .carousel-nav.catalog-pagination .pagination span {
-    /* Diseño de caja para destacar los números */
-    background-color: var(--color-background-card); /* Fondo claro */
-    color: var(--color-text-dark); 
-    border: 1px solid #ccc; /* Borde suave */
+    background-color: var(--color-background-card);
+    color: var(--color-text-dark);
+    border: 1px solid #ccc;
     padding: 8px 12px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 500;
     transition: all 0.2s;
-    min-width: 40px; /* Ancho mínimo para números de 1 o 2 dígitos */
+    min-width: 40px;
     text-align: center;
 }
 
-/* Estilo para la página activa/seleccionada */
 .carousel-nav.catalog-pagination .pagination span.active {
-    background-color: var(--color-secondary); /* Color de acento (amarillo/dorado) */
+    background-color: var(--color-secondary);
     color: var(--color-text-dark);
     border-color: var(--color-secondary);
     font-weight: 700;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo para los puntos suspensivos */
 .carousel-nav.catalog-pagination .pagination .page-ellipsis {
     padding: 8px 0;
     cursor: default;
     border: none;
 }
 
-/* Estilo del Input de Página Personalizada */
 .custom-page-input {
     width: 60px;
     padding: 7px;
@@ -2723,37 +2528,26 @@ a { text-decoration: none; color: inherit; }
     font-size: 1em;
 }
 
-/* Arreglo para que los productos llenen el espacio correctamente */
-/* Este ajuste es crucial si los libros están flotando a la izquierda */
 .catalog-container {
-    /* Asegura que el contenedor de grid tenga un máximo de ancho para que el contenido de la derecha no interfiera */
-    max-width: 1300px; 
-    margin: 40px auto; 
+    max-width: 1300px;
+    margin: 40px auto;
     display: grid;
-    /* (Ya tenías grid-template-columns: 250px 1fr;) */
 }
 
-/* Arreglo para el mensaje de carga */
 .loading-message {
-    grid-column: 1 / -1; /* Asegura que el mensaje ocupe todo el ancho de la sección */
+    grid-column: 1 / -1;
     text-align: center;
     padding: 50px;
 }
 
-/* ==========================================================================
-   ESTILOS ESPECÍFICOS: PERFIL DE USUARIO
-   ========================================================================== */
-
-/* 1. Contenedor principal del perfil (ajusta el centrado y espaciado) */
 .profile-main-wrapper {
     position: relative;
     z-index: 5;
     width: 90%;
-    max-width: 950px; /* Ancho cómodo para el contenido */
-    margin: 100px auto 50px auto; /* Espacio superior para el navbar fijo */
+    max-width: 950px;
+    margin: 100px auto 50px auto;
 }
 
-/* 2. Título de la página (usa el color primario) */
 .profile-title-custom {
     color: var(--color-primary);
     text-align: center;
@@ -2763,36 +2557,30 @@ a { text-decoration: none; color: inherit; }
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-/* 3. Tarjeta de Encabezado (donde está el Avatar y la Info) */
 .profile-header-card {
-    background-color: #fff; /* Fondo blanco para el degradado */
-    /* AÑADIDO: Degradado sutil de arriba hacia abajo */
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%); 
+    background-color: #fff;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(240, 240, 240, 1) 100%);
     
     padding: 30px;
     border-radius: 10px;
-    /* AÑADIDO: Sombra más suave y moderna */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     
     display: flex;
     align-items: center;
     gap: 25px;
     margin-bottom: 50px;
-    border-left: 5px solid var(--color-secondary); 
+    border-left: 5px solid var(--color-secondary);
 }
 
-/* 4. Avatar (estilo personalizado) */
 .profile-avatar-custom {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    /* Borde grueso que da un toque de calidad */
-    border: 4px solid var(--color-primary); 
+    border: 4px solid var(--color-primary);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* 5. Texto y detalles del usuario */
 .profile-text-custom {
     flex-grow: 1;
     text-align: left;
@@ -2811,7 +2599,6 @@ a { text-decoration: none; color: inherit; }
     display: block;
 }
 
-/* 6. Botón de Editar Perfil (Ajustamos el tamaño del botón secundario) */
 .btn-edit-profile {
     padding: 8px 15px;
     font-size: 0.9em;
@@ -2821,46 +2608,39 @@ a { text-decoration: none; color: inherit; }
     margin-right: 5px;
 }
 
-/* 7. Grid de Módulos de Acción */
 .profile-actions-grid-custom {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Autoajuste y 4 columnas */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
 }
 
-/* Usamos la clase .action-module que ya existe, pero la ajustamos para el perfil */
 .action-module-lg {
     padding: 30px 20px;
     min-height: 180px;
-    /* Usamos fondo blanco sólido con borde primario */
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: all 0.2s ease-in-out;
-    /* AÑADIDO: Hace que el icono se mueva ligeramente con el mouse */
     overflow: hidden;
 
 }
 
 .action-module-lg:hover {
-    /* Efecto de "levantamiento" con el color primario */
     transform: translateY(-5px);
-    border-color: var(--color-primary); 
+    border-color: var(--color-primary);
     box-shadow: 0 8px 20px rgba(93, 64, 55, 0.3);
 }
 
 .action-module-lg i {
     font-size: 3em;
-    color: var(--color-secondary); /* Íconos dorados */
+    color: var(--color-secondary);
     margin-bottom: 10px;
-    /* AÑADIDO: Transición para el movimiento */
     transition: transform 0.3s ease-in-out;
 }
 .action-module-lg:hover i {
-    /* Mueve el icono ligeramente hacia arriba en hover */
-    transform: translateY(-5px) scale(1.05); 
+    transform: translateY(-5px) scale(1.05);
 }
 
 .action-module-lg h3 {
@@ -2876,10 +2656,9 @@ a { text-decoration: none; color: inherit; }
     line-height: 1.4;
 }
 
-/* 8. Adaptabilidad (Media Query) */
 @media (max-width: 768px) {
     .profile-main-wrapper {
-        margin-top: 20px; /* Reducir margen superior en móvil */
+        margin-top: 20px;
         width: 95%;
     }
     .profile-title-custom {
@@ -2887,7 +2666,7 @@ a { text-decoration: none; color: inherit; }
         margin-bottom: 20px;
     }
     .profile-header-card {
-        flex-direction: column; /* Apilar en vertical */
+        flex-direction: column;
         text-align: center;
         margin-bottom: 30px;
         padding: 20px;
@@ -2902,7 +2681,7 @@ a { text-decoration: none; color: inherit; }
         font-size: 1.8em;
     }
     .profile-actions-grid-custom {
-        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        grid-template-columns: 1fr;
         gap: 20px;
     }
     .action-module-lg {
@@ -2911,11 +2690,6 @@ a { text-decoration: none; color: inherit; }
     }
 }
 
-/* ==========================================================================
-   CSS ADICIONAL PARA VISIBILIDAD Y REGISTRO
-   ========================================================================== */
-
-/* Wrapper para posicionar el icono dentro del input */
 .password-wrapper {
     position: relative;
     display: flex;
@@ -2924,35 +2698,31 @@ a { text-decoration: none; color: inherit; }
 }
 
 .password-wrapper input {
-    width: 100%; 
-    padding-right: 40px; /* Deja espacio para el icono */
+    width: 100%;
+    padding-right: 40px;
 }
 
-/* Estilo y posicionamiento del icono del ojo */
 .password-toggle {
     position: absolute;
-    right: 15px; 
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #888; 
+    color: #888;
     transition: color 0.2s;
 }
 
-/* --- ESTILOS DE VALIDACIÓN --- */
-
 #password-requirements {
-    grid-column: 3 / 4; /* Lo mueve a la columna 3 del grid (junto al captcha) */
-    grid-row: 5 / span 4; /* Ocupa varias filas */
-    margin-top: 15px; 
-    margin-bottom: 15px; 
+    grid-column: 3 / 4;
+    grid-row: 5 / span 4;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 10px 0;
     border-top: 1px dashed #ccc;
     border-bottom: 1px dashed #ccc;
     font-size: 0.85em;
     text-align: left;
 }
-/* Reajuste para que la lista de coincidencia quede debajo de la lista principal */
 #match-validation {
     grid-column: 3 / 4;
     grid-row: 9 / 10;
@@ -2967,62 +2737,49 @@ a { text-decoration: none; color: inherit; }
     margin: 0;
 }
 
-/* Estilos de las líneas de requisito (Color y Tache/Paloma) */
 #password-requirements li, #match-validation li {
     line-height: 1.6;
-    color: red; 
+    color: red;
     display: flex;
     align-items: center;
 }
 
 #password-requirements li i, #match-validation li i {
-    width: 20px; 
+    width: 20px;
     margin-right: 5px;
     text-align: center;
 }
 
-/* ==========================================================================
-   FORMULARIO DE REGISTRO (ARREGLO DE LAYOUT Y FOOTER)
-   ========================================================================== */
-
-/* 1. Arreglo del FOOTER: Para que se vea en páginas largas */
-/* El problema principal es que el MAIN estaba ocupando toda la altura. */
 .form-page {
     min-height: 100vh;
-    display: flex; /* Asegura que el body use Flexbox */
-    flex-direction: column; /* Apila main y footer verticalmente */
+    display: flex;
+    flex-direction: column;
 }
 
 .main-content {
-    flex-grow: 1; /* Permite que el contenido principal ocupe todo el espacio sobrante */
+    flex-grow: 1;
     position: relative;
-    padding-top: 0; /* No necesitamos padding superior aquí */
+    padding-top: 0;
 }
 
-/* El footer se verá ahora porque el main no lo empuja hacia arriba */
 .site-footer {
-    /* Mantenemos los estilos existentes */
     z-index: 10;
     margin-top: auto;
 }
 
-/* 2. LAYOUT DEL FORMULARIO: Usaremos 3 columnas con Grid */
 .form-card.registration-card {
-    max-width: 1200px; /* Incrementamos el ancho para acomodar 3 columnas */
-    padding: 40px; 
+    max-width: 1200px;
+    padding: 40px;
 }
 
 .registration-grid {
     display: grid;
-    /* Nuevo Layout: Tres columnas. Las dos primeras son para los datos. La tercera para Contraseña/Validación. */
-    grid-template-columns: repeat(2, 1fr) 1fr; 
+    grid-template-columns: repeat(2, 1fr) 1fr;
     gap: 20px 30px;
     text-align: left;
 }
 
-/* Contenedores de Sección (Datos Personales, Contacto, etc.) */
 .section-group {
-    /* Secciones normales, ocupan solo su columna */
     padding: 10px;
     border: 1px dashed #ccc;
     border-radius: 5px;
@@ -3035,49 +2792,41 @@ a { text-decoration: none; color: inherit; }
     padding-bottom: 5px;
 }
 
-/* La columna de Contraseña ocupará las filas necesarias */
 .password-data {
-    /* Ocupa las columnas 3 hasta la 4 (final del grid) */
-    grid-column: 3 / 4; 
-    grid-row: 1 / 4; /* Ocupa las 3 filas superiores del grid */
+    grid-column: 3 / 4;
+    grid-row: 1 / 4;
 }
 
-/* Arreglo para la Validación de Contraseña dentro de la columna 3 */
 .password-validation-area {
     margin-top: 15px;
 }
 
-/* Ajuste del CAPTCHA para que quede al final de la columna 3 */
 .captcha-group {
-    grid-column: 1 / -1; /* Reset a una columna completa para centrar */
+    grid-column: 1 / -1;
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid #ddd;
     text-align: center;
 }
 
-/* Los botones quedan debajo de todo el grid */
 .form-actions-bottom {
-    grid-column: 1 / -1; /* Ocupa las tres columnas */
+    grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
 }
 
-/* --- ESTILOS DEL BOTÓN DE CARRITO EN EL HEADER --- */
-
 .cart-button {
     position: relative;
-    margin-right: 15px; /* Espaciado con el avatar */
+    margin-right: 15px;
 }
 
-/* Estilo del círculo de conteo */
 .cart-badge {
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: var(--color-primary); /* Color café */
-    color: #fff; /* Color crema/blanco */
+    background-color: var(--color-primary);
+    color: #fff;
     border-radius: 50%;
     padding: 2px 6px;
     font-size: 0.7em;
@@ -3086,8 +2835,6 @@ a { text-decoration: none; color: inherit; }
     text-align: center;
     line-height: 1.4;
 }
-
-/* --- ESTILOS DE BOTONES EN TARJETAS DE CATÁLOGO --- */
 
 .product-actions {
     display: flex;
@@ -3105,23 +2852,18 @@ a { text-decoration: none; color: inherit; }
 }
 
 .btn-buy-now {
-    /* Usamos el estilo secundario para comprar ahora */
     background-color: transparent;
     color: var(--color-primary);
     border: 1px solid var(--color-primary);
 }
 
 .btn-add-to-cart {
-    /* Usamos el estilo primario para añadir */
     background-color: var(--color-primary);
     color: var(--color-text-light);
     border: none;
 }
 
-/* --- ESTILOS DE LA PÁGINA CARRITO (carrito.html) --- */
-
 .cart-items-list {
-    /* Mantenemos el estilo de tarjeta base */
     background-color: var(--color-background-card);
     padding: 20px;
     border-radius: 10px;
@@ -3131,7 +2873,7 @@ a { text-decoration: none; color: inherit; }
 
 .cart-item {
     display: grid;
-    grid-template-columns: 80px 1fr auto; /* Imagen, Detalles, Precio */
+    grid-template-columns: 80px 1fr auto;
     gap: 15px;
     align-items: center;
     padding: 15px 0;
@@ -3168,11 +2910,10 @@ a { text-decoration: none; color: inherit; }
     font-size: 1.3em;
     font-weight: 700;
     color: var(--color-primary);
-    align-self: flex-start; /* Alinea el precio total del item a la parte superior */
+    align-self: flex-start;
     margin-top: 15px;
 }
 
-/* Controles de Cantidad (+/-) */
 .item-quantity-controls {
     display: flex;
     align-items: center;
@@ -3198,7 +2939,6 @@ a { text-decoration: none; color: inherit; }
     font-weight: 700;
 }
 
-/* Botón Quitar */
 .btn-remove {
     background: none;
     border: none;
@@ -3211,10 +2951,9 @@ a { text-decoration: none; color: inherit; }
     margin-top: 5px;
 }
 
-/* Resumen (Footer) */
 .cart-summary-wrapper {
-    max-width: 400px; /* Limita el ancho del resumen para que no sea muy grande */
-    margin-left: auto; /* Mueve el resumen a la derecha */
+    max-width: 400px;
+    margin-left: auto;
 }
 .cart-summary {
     background-color: var(--color-background-dark);
@@ -3232,7 +2971,6 @@ a { text-decoration: none; color: inherit; }
     margin-top: 15px;
 }
 #btn-start-checkout {
-    /* Estilo del botón 'Continuar con la compra' */
     width: 100%;
     background-color: var(--color-primary);
     color: var(--color-text-light);
@@ -3242,10 +2980,6 @@ a { text-decoration: none; color: inherit; }
     border-radius: 5px;
     cursor: pointer;
 }
-
-/* ==========================================================================
-   ESTILOS DEL PROCESO DE COMPRA (CHECKOUT)
-   ========================================================================== */
 
 .checkout-container {
     position: relative;
@@ -3268,11 +3002,10 @@ a { text-decoration: none; color: inherit; }
 
 .checkout-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Productos vs Resumen */
+    grid-template-columns: 2fr 1fr;
     gap: 30px;
 }
 
-/* --- Resumen y Totales (Columna derecha) --- */
 .checkout-summary-card {
     padding: 20px;
     background-color: #f7f7f7;
@@ -3305,7 +3038,6 @@ a { text-decoration: none; color: inherit; }
     color: var(--color-red);
 }
 
-/* --- Botones de Navegación --- */
 .navigation-actions {
     display: flex;
     justify-content: space-between;
@@ -3321,7 +3053,6 @@ a { text-decoration: none; color: inherit; }
     font-weight: 700;
 }
 
-/* --- Estilos para Dirección y Pago (Radio/Checkbox Lists) --- */
 .address-list, #payment-options-list {
     display: flex;
     flex-direction: column;
@@ -3362,7 +3093,6 @@ a { text-decoration: none; color: inherit; }
     font-size: 0.9em;
 }
 
-/* --- Finalizar Compra --- */
 .final-summary-area {
     background-color: #fff;
     padding: 20px;
@@ -3392,10 +3122,8 @@ a { text-decoration: none; color: inherit; }
 }
 
 
-/* --- MODAL DE ÉXITO DE COMPRA --- */
 .modal-backdrop {
-    /* [Debe tener display: flex para mostrarse] */
-    display: none; 
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -3426,13 +3154,12 @@ a { text-decoration: none; color: inherit; }
     cursor: pointer;
 }
 
-/* RESPONSIVIDAD */
 @media (max-width: 768px) {
     .checkout-grid {
         grid-template-columns: 1fr;
     }
     .checkout-summary-card {
-        order: -1; /* Mover el resumen al inicio en móvil */
+        order: -1;
         margin-bottom: 20px;
     }
     .navigation-actions {
