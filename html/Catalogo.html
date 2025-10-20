@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Lechuza Lectora - Catálogo</title>
-    <!-- RUTA CSS: Sube un nivel a Código/ y baja a Estilos/ -->
+
     <link rel="stylesheet" href="../Estilos/Estilo1.css"> 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
-    <!-- Scripts de funcionalidad: Lógica de login, productos y filtros -->
+
     <script src="../Js/loginRedirect.js"></script> 
     <script src="../Js/productLoader.js"></script>
     <script src="../Js/filterSidebar.js"></script>
@@ -18,10 +18,10 @@
 </head>
 <body>
 
-    <!-- Header con Búsqueda y Botón de Inicio de Sesión (Usuario NO Logeado) -->
+
     <header class="navbar detail-navbar">
         <div class="logo-container">
-            <!-- RUTA IMAGEN: Sube un nivel a Código/ y baja a Imagenes/ -->
+
             <img src="../Imagenes/logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
             <span class="site-name">LA LECHUZA LECTORA</span>
         </div>
@@ -39,24 +39,24 @@
         </nav>
         
         <div class="auth-actions user-actions">
-            <!-- Botón Casita (Regresa a index.html en la raíz) -->
+
             <button class="icon-button"><i class="fa-solid fa-house"></i></button>
-            <!-- Botón que activa la redirección a inicio de sesión (programado en loginRedirect.js) -->
+
             <button class="btn-primary">Iniciar Sesión</button>
         </div>
     </header>
 
-    <!-- Contenido Principal: Catálogo (Dinámico) -->
+
     <main class="main-content catalog-main">
         <div class="background-overlay" style="filter: brightness(0.8);"></div>
         
-        <!-- Botón visible en móvil/tablet para abrir los filtros -->
+
         <button id="filter-toggle" class="btn-filter-toggle">
             <i class="fa-solid fa-filter"></i> Filtros
         </button>
 
         <div class="catalog-container">
-            <!-- Sidebar de Filtros (ESTRUCTURA ÚNICA Y COMPLETA) -->
+
             <aside class="filter-sidebar" id="filter-sidebar">
                 <div class="sidebar-header">
                     <h2>Filtros</h2>
@@ -65,7 +65,7 @@
                     </button>
                 </div>
                 
-                <!-- 1. Género Principal -->
+
                 <div class="filter-section filter-genres">
                     <h3>Género Principal</h3>
                     <div class="filter-options">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                <!-- 2. Subgéneros/Temas -->
+                            
                 <div class="filter-section filter-subgenres">
                     <h3>Subgéneros/Temas</h3>
                     <div class="filter-options">
@@ -110,7 +110,7 @@
                     </div>
                 </div>
 
-                <!-- 3. Clasificación de Edad -->
+
                 <div class="filter-section filter-age">
                     <h3>Clasificación de Edad</h3>
                     <div class="filter-options">
@@ -120,7 +120,7 @@
                     </div>
                 </div>
 
-                <!-- 4. Tamaño y Formato -->
+
                 <div class="filter-section filter-format">
                     <h3>Tamaño/Formato</h3>
                     <div class="filter-options">
@@ -133,7 +133,7 @@
                     </div>
                 </div>
 
-                <!-- 5. Cantidad de Hojas (Rango) -->
+
                 <div class="filter-section filter-pages">
                     <h3>Páginas (Máx.)</h3>
                     <div class="page-range">
@@ -144,7 +144,7 @@
                     </div>
                 </div>
 
-                <!-- 6. Material de Composición/Cubierta -->
+
                 <div class="filter-section filter-material">
                     <h3>Material/Cubierta</h3>
                     <div class="filter-options">
@@ -155,11 +155,11 @@
                     </div>
                 </div>
                 
-                <!-- 7. Sección de Colores -->
+
                 <div class="filter-section filter-colors">
                     <h3>Color de Cubierta</h3>
                     <div class="color-options">
-                        <!-- Estructura de GRID 3xN para los colores (El CSS lo organiza) -->
+
                         <span class="color-swatch" style="background-color: #5d4037;" data-filter="Marrón"></span>
                         <span class="color-swatch" style="background-color: #d32f2f;" data-filter="Rojo"></span>
                         <span class="color-swatch" style="background-color: #1976d2;" data-filter="Azul"></span>
@@ -178,7 +178,7 @@
                     </div>
                 </div>
                 
-                <!-- 8. Sección de Condición (Ofertas) -->
+
                 <div class="filter-section filter-offers">
                     <h3>Condición</h3>
                     <div class="filter-options">
@@ -188,7 +188,7 @@
                     </div>
                 </div>
 
-                <!-- 9. Sección de Precio Máximo (Rango) -->
+
                 <div class="filter-section filter-price">
                     <h3>Precio Máximo</h3>
                     <div class="price-range">
@@ -200,32 +200,32 @@
                 </div>
 
 
-                <!-- Tags Activos -->
+
                 <div class="filter-section">
                     <h3>Filtros Activos</h3>
                     <div class="filter-tags" id="active-filters-tags">
-                        <!-- Los tags activos se inyectarán aquí por el JS -->
+
                     </div>
                 </div>
             </aside>
             
-            <!-- Contenedor donde se inyectarán los productos... -->
+
             <section class="product-grid" id="products-container">
-                <!-- Los productos se cargarán aquí -->
+
             </section>
         </div>
         
-        <!-- PAGINACIÓN (Centrada y fuera del contenedor de grid) -->
+
         <div class="carousel-nav catalog-pagination">
             <button id="prev-page-btn">← Previous</button> 
             <div class="pagination">
-                <!-- Los números de página se inyectarán aquí dinámicamente por JS -->
+
             </div>
             <button id="next-page-btn">Next →</button>
         </div>
     </main>
 
-    <!-- Footer -->
+
     <footer class="site-footer">
         <div class="social-links">
             <a href="#"><i class="fa-brands fa-x-twitter"></i></a>

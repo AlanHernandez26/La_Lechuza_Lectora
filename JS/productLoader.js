@@ -1,9 +1,6 @@
-// Archivo: Js/productLoader.js
-// Maneja la carga simulada de productos y la funcionalidad de paginación avanzada.
-
 let currentPage = 1;
 const totalPages = 68;
-const MAX_PAGES_VISIBLE = 7; // Número máximo de páginas mostradas en la barra
+const MAX_PAGES_VISIBLE = 7;
 
 document.addEventListener('DOMContentLoaded', () => {
     const productsContainer = document.getElementById('products-container');
@@ -18,9 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = paginationContainer.querySelector('#next-page-btn');
     const paginationDiv = paginationContainer.querySelector('.pagination');
 
-    // --- FUNCIONES DE CARGA Y SIMULACIÓN ---
-
-    function loadProducts(page) {
+        function loadProducts(page) {
         if (page < 1 || page > totalPages) return;
 
         currentPage = page;
@@ -30,13 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Simulación: Cargando página ${page} de la base de datos.</p>
             </div>
         `;
-        
-        // Simulación de delay de carga
+
         setTimeout(() => {
             productsContainer.innerHTML = generateMockProducts(page);
             updatePaginationView();
-            
-            // ¡LLAMADA CLAVE! Adjunta los listeners del carrito a los nuevos botones.
+
             if (typeof initCartListeners === 'function') {
                 initCartListeners(); 
             }
@@ -44,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function generateMockProducts(page) {
-        // (Usamos la función que ya tienes para generar tarjetas mock)
+
         let html = '';
         const itemsPerPage = 12;
         const start = (page - 1) * itemsPerPage;
@@ -76,8 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return html;
     }
-    
-    // --- LÓGICA AVANZADA DE PAGINACIÓN (EXISTENTE) ---
 
     function calculatePaginationRange() {
         const pages = [];
@@ -167,6 +158,5 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nextBtn) nextBtn.disabled = currentPage === totalPages;
     }
 
-    // --- INICIALIZACIÓN ---
     loadProducts(1);
 });

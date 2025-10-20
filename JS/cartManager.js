@@ -1,35 +1,28 @@
-// Archivo: Js/cartManager.js
-// Maneja el estado global del carrito, la persistencia (localStorage), el renderizado en carrito.html, y los cálculos de totales.
 
 let cartItems = []; 
-// Rutas de Checkout (asumimos que la carpeta 'compra' está dentro de 'logeado')
+
 const CHECKOUT_START_URL = 'compra/resumen_compra.html'; 
 const CART_PAGE_URL = 'carrito.html'; 
 const STORAGE_KEY = 'laLechuzaLectoraCart'; 
 
-// -------------------------------------------------------------------------
-// PERSISTENCIA Y UTILIDADES
-// -------------------------------------------------------------------------
 
 function saveCart() {
-    // Guarda el estado actual en localStorage
+
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cartItems));
 }
 
 function loadCart() {
-    // Carga el estado guardado al iniciar la página
+
     const storedCart = localStorage.getItem(STORAGE_KEY);
     if (storedCart) {
         cartItems = JSON.parse(storedCart);
     }
 }
 
-/**
- * Calcula el subtotal (suma de precio * cantidad) y los totales finales.
- */
+
 function calculateTotals() {
     const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const shippingCost = 0; // Costo de envío simulado (Gratis)
+    const shippingCost = 0;
     const total = subtotal + shippingCost;
 
     return {
@@ -41,13 +34,6 @@ function calculateTotals() {
 }
 
 
-// -------------------------------------------------------------------------
-// MANIPULACIÓN DEL CARRITO (Añadir/Quitar/Actualizar)
-// -------------------------------------------------------------------------
-
-/**
- * Actualiza el badge de conteo en el header.
- */
 function updateCartCount() {
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
     const countElement = document.getElementById('cart-count');
@@ -58,13 +44,10 @@ function updateCartCount() {
     }
 }
 
-/**
- * Añade un producto al carrito.
- */
 function addToCart(productId, buyNow = false) {
     loadCart(); 
     
-    // LÓGICA DE COMPRA DIRECTA: Si es Compra Directa, limpiamos el carrito antes
+
     if (buyNow) {
         cartItems = []; 
     }
@@ -74,34 +57,30 @@ function addToCart(productId, buyNow = false) {
     if (itemIndex > -1) {
         cartItems[itemIndex].quantity += 1;
     } else {
-        // Simulación: Añadir nuevo producto (Datos mock necesarios para el renderizado del carrito)
+
         cartItems.push({ 
             id: productId, 
             quantity: 1, 
-            price: 450, // Precio simulado
+            price: 450, 
             name: `Libro Simulado #${productId}`,
-            image: `../../Imagenes/mock_portada${(productId % 5) + 1}.jpg` // Ruta mock
+            image: `../../Imagenes/mock_portada${(productId % 5) + 1}.jpg`
         }); 
     }
     
     saveCart();
     updateCartCount();
-    
-    // Si es compra directa, redirigimos al checkout inmediatamente
+
     if (buyNow) {
         startCheckout();
     }
 }
 
-/**
- * Actualiza la cantidad de un producto o lo elimina.
- */
 function updateItemQuantity(productId, newQuantity) {
     const itemIndex = cartItems.findIndex(item => item.id === productId);
 
     if (itemIndex > -1) {
         if (newQuantity <= 0) {
-            // Eliminar producto si la cantidad es 0 o menos
+
             cartItems.splice(itemIndex, 1);
         } else {
             cartItems[itemIndex].quantity = newQuantity;
@@ -110,16 +89,12 @@ function updateItemQuantity(productId, newQuantity) {
         saveCart();
         updateCartCount();
 
-        // Si estamos en la página del carrito, forzamos la recarga de la vista
         if (window.location.pathname.includes(CART_PAGE_URL)) {
              renderCart();
         }
     }
 }
 
-/**
- * Elimina un producto completamente.
- */
 function removeItem(productId) {
     const initialLength = cartItems.length;
     cartItems = cartItems.filter(item => item.id !== productId);
@@ -133,14 +108,6 @@ function removeItem(productId) {
     }
 }
 
-
-// -------------------------------------------------------------------------
-// RENDERIZADO Y FLUJO DE COMPRA
-// -------------------------------------------------------------------------
-
-/**
- * Genera el HTML de una sola tarjeta de producto en el carrito (Usado en carrito.html).
- */
 function generateCartItemHTML(item) {
     const itemTotal = (item.price * item.quantity).toFixed(2);
     
@@ -162,9 +129,6 @@ function generateCartItemHTML(item) {
     `;
 }
 
-/**
- * Renderiza todos los elementos del carrito y actualiza los totales en carrito.html.
- */
 function renderCart() {
     const container = document.getElementById('cart-items-container');
     const totals = calculateTotals();
@@ -180,7 +144,6 @@ function renderCart() {
         attachCartPageListeners();
     }
 
-    // Actualizar Totales del Resumen
     const totalItemsDisplay = document.getElementById('total-items-display');
     if (totalItemsDisplay) totalItemsDisplay.textContent = totals.itemCount;
     
@@ -194,11 +157,8 @@ function renderCart() {
     if (totalDisplay) totalDisplay.textContent = `$${totals.total}`;
 }
 
-/**
- * Adjunta listeners para los botones de cantidad y remover en la página del carrito.
- */
 function attachCartPageListeners() {
-    // Botones de Cantidad (+)
+
     document.querySelectorAll('.btn-plus').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const id = e.currentTarget.getAttribute('data-id');
@@ -207,7 +167,7 @@ function attachCartPageListeners() {
         });
     });
     
-    // Botones de Cantidad (-)
+
     document.querySelectorAll('.btn-minus').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const id = e.currentTarget.getAttribute('data-id');
@@ -216,7 +176,7 @@ function attachCartPageListeners() {
         });
     });
     
-    // Botones de Remover Item
+
     document.querySelectorAll('.btn-remove').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const id = e.currentTarget.getAttribute('data-id');
@@ -225,24 +185,17 @@ function attachCartPageListeners() {
     });
 }
 
-/**
- * Redirige al primer paso del proceso de compra.
- */
 function startCheckout() {
     if (cartItems.length > 0) {
-        // Redirige a la subcarpeta 'compra'
+
         window.location.href = CHECKOUT_START_URL; 
     } else {
         alert("Tu carrito está vacío. Añade algunos libros antes de continuar.");
     }
 }
 
-/**
- * Inicializa los listeners específicos del carrito, incluyendo el botón de añadir/comprar
- * y el ícono de redirección en el header.
- */
 function initCartListeners() {
-    // 1. Listeners en las tarjetas de producto (Catálogo)
+
     document.querySelectorAll('.btn-add-to-cart').forEach(button => {
         button.addEventListener('click', (e) => {
             const productId = e.currentTarget.getAttribute('data-product-id');
@@ -250,15 +203,19 @@ function initCartListeners() {
         });
     });
 
-    // 2. Listener en el botón "Comprar Ahora" (simula compra directa)
     document.querySelectorAll('.btn-buy-now').forEach(button => {
          button.addEventListener('click', (e) => {
              const productId = e.currentTarget.getAttribute('data-product-id');
-             addToCart(productId, true); // Compra Directa activa buyNow=true
+             addToCart(productId, true);
+             
+
+
+
+
+
          });
     });
 
-    // 3. Listener en el ícono del header (Redirección a carrito.html)
     const cartHeaderButton = document.getElementById('cart-icon-btn');
     if (cartHeaderButton) {
         cartHeaderButton.addEventListener('click', () => {
@@ -266,31 +223,23 @@ function initCartListeners() {
         });
     }
 
-    // 4. Listener en el botón "Continuar con la compra" (en carrito.html)
     const checkoutBtn = document.getElementById('btn-start-checkout');
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', startCheckout);
     }
 }
 
-
-// -------------------------------------------------------------------------
-// INICIALIZACIÓN GLOBAL
-// -------------------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
-    // Carga el estado guardado
+
     loadCart();
     updateCartCount();
-    
-    // Inicializa listeners del Catálogo/Header 
+
     initCartListeners(); 
 
-    // Si estamos en la página del carrito, renderizamos el contenido completo
     if (window.location.pathname.includes(CART_PAGE_URL)) {
          renderCart();
     }
-    
-    // Exportamos las funciones esenciales para que checkoutManager las use
+
     window.calculateTotals = calculateTotals;
     window.updateItemQuantity = updateItemQuantity;
     window.removeItem = removeItem;
