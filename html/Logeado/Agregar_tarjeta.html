@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lechuza Lectora - Agregar Tarjeta</title>
+    <link rel="stylesheet" href="../../Estilos/Estilo1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="form-page">
+
+    <header class="navbar-minimal">
+        <div class="logo-container">
+            <img src="../../Imagenes/logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
+            <span class="site-name">LA LECHUZA LECTORA</span>
+        </div>
+    </header>
+
+    <main class="main-content form-main">
+        <div class="background-overlay" style="filter: brightness(0.6);"></div>
+
+        <div class="form-card card-payment-form">
+            <h1>Agregar Tarjeta de Débito o Crédito</h1> <form class="payment-grid">
+                <div class="input-group full-width">
+                    <label for="numero_tarjeta">Numero de tarjeta</label>
+                    <input type="text" id="numero_tarjeta" required>
+                </div>
+                
+                <div class="input-group full-width">
+                    <label for="nombre_titular">Nombre del titular</label>
+                    <input type="text" id="nombre_titular" required>
+                </div>
+                
+                <div class="input-group half-width">
+                    <label for="fecha_expiracion">Fecha de expiracion</label>
+                    <input type="text" id="fecha_expiracion" placeholder="MM/AA" required>
+                </div>
+                
+                <div class="input-group half-width">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" required>
+                </div>
+
+                <div class="input-group full-width">
+                    <label for="direccion_titular">Direccion del titular</label>
+                    <input type="text" id="direccion_titular" required>
+                </div>
+
+                <button type="submit" class="btn-confirm-card">Guardar tarjeta</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="site-footer">...</footer>
+
+</body>
+</html>
