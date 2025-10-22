@@ -3166,3 +3166,43 @@ a { text-decoration: none; color: inherit; }
         flex-direction: column;
     }
 }
+
+
+
+.admin-profile-navbar {
+    padding: 10px 40px;
+    background-color: var(--color-background-card); 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+
+.notification-icon {
+    
+    margin-left: 0; 
+    
+    font-size: 1.5em; 
+}
+
+.admin-profile .avatar {
+    width: 40px;  
+    height: 40px; 
+    border-radius: 50%; 
+    object-fit: cover;
+    margin-left: 5px; 
+}
+
+
+.navbar .logo {
+    height: 40px; 
+    width: auto;
+}
