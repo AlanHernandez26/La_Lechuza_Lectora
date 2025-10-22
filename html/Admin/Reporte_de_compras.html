@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Lechuza Lectora - Reporte de Compras</title>
+    <link rel="stylesheet" href="../../Estilos/Estilo1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    </head>
+<body class="dashboard-page">
+
+    <header class="navbar dashboard-navbar">
+        <div class="logo-container">
+            <img src="../../Imagenes/logo.png" alt="Logo La Lechuza Lectora" class="logo"> 
+            <span class="site-name">LA LECHUZA LECTORA</span>
+        </div>
+        
+        <div class="admin-profile">
+            <i class="fa-solid fa-house"></i>
+            <span>Admin</span>
+            <img src="../../Imagenes/miku.png.jpg" alt="Avatar Admin" class="avatar">
+        </div>
+    </header>
+
+    <main class="main-content inventory-main">
+        <div class="report-container large-report">
+            <h1 class="report-title">Reporte de compras</h1>
+
+            <div class="key-metrics-grid">
+                <div class="metric-card gold-bg">
+                    <i class="fa-solid fa-sack-dollar"></i>
+                    <p>Ventas totales</p>
+                    <strong>$1,250,000</strong>
+                </div>
+                <div class="metric-card growth-bg">
+                    <i class="fa-solid fa-arrow-up green-arrow"></i>
+                    <p>CRECIMIENTO ACUMULADO</p>
+                    <strong>+18%</strong>
+                    <i class="fa-solid fa-chart-bar"></i>
+                </div>
+                <div class="metric-card best-month-bg">
+                    <i class="fa-solid fa-calendar-alt"></i>
+                    <p>MES CON MAYORES VENTAS</p>
+                    <strong>Febe ($85,000)</strong>
+                    <i class="fa-solid fa-arrow-down red-arrow"></i>
+                </div>
+            </div>
+
+            <div class="charts-and-table-grid">
+                <div class="chart-card sales-per-month">
+                    <h2>Ventas por Mes</h2>
+                    <div class="chart-placeholder">
+                        <img src="../../Imagenes/line-chart-placeholder.png" alt="Gráfico de Ventas por Mes" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+
+                <div class="chart-card monthly-growth">
+                    <h2>Crecimiento Mensual</h2>
+                    <div class="chart-placeholder">
+                        <img src="../../Imagenes/bar-pie-chart-placeholder.png" alt="Gráfico de Crecimiento y Tiempos" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="data-table-card distribution-table">
+                    <h2>Distribución de Ventas por Trimestre</h2>
+                    <table class="report-data-table distribution-table-data">
+                        <thead>
+                            <tr>
+                                <th>MES</th>
+                                <th>VENTAS</th>
+                                <th>VENTAS</th>
+                                <th>% Crecimiento (vs. Mes Ant.)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Enero</td><td>$90,000</td><td>$90,000</td><td>T1 <span class="green-arrow">▲+10%</span> <span class="green-arrow">▲+20%</span> <span class="green-arrow">▲</span></td></tr>
+                            <tr><td>Fenzo</td><td>$102,000</td><td class="negative">-2%</td><td>T2 <span class="red-arrow">▼-5%</span> <span class="green-arrow">▲+20%</span> <span class="green-arrow">▲</span></td></tr>
+                            <tr><td>Marzo</td><td>$124,000</td><td>250%</td><td>T3 <span class="red-arrow">▼-25%</span> <span class="green-arrow">▲+20%</span> <span class="green-arrow">▲</span></td></tr>
+                            <tr><td>Diciembre</td><td>$112,000</td><td>$115,000</td><td>T4 <span class="red-arrow">▼-28%</span> <span class="red-arrow">▼+18%</span> <span class="green-arrow">▲</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">...</footer>
+
+</body>
+</html>
